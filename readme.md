@@ -11,8 +11,8 @@ WordPress plugin starter code.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Developers notes ==
-This started code users Webpack 5 versus gulp to compile css and js. It does not polyfill by default. It uses autoloading and WordPress coding standards via composer.
+This starter code uses Webpack 5 versus gulp to compile css and js. It does not polyfill by default. It uses autoloading and WordPress coding standards via composer.
 
 Basic build commands include: 
-npm run build 
-npm run watch
+npm run build \
+npm run watch \
