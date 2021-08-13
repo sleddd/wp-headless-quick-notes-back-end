@@ -1,0 +1,18 @@
+{
+    "name": "wpstarterplugin/wpstarterplugin",
+    "description": "WordPress plugin starter code",
+	"authors": [
+		{
+			"name": "Claudette Raynor"
+		}
+	],
+	"require-dev": {
+		"automattic/vipwpcs": "^2.3",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"WpStarterPlugin\\": "classes/"
+		}
+	}
+}
