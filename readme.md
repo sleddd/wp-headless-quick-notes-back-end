@@ -13,6 +13,6 @@ WordPress plugin starter code.
 == Developers notes ==
 This starter code uses Webpack 5 versus gulp to compile css and js. It does not polyfill by default. It uses autoloading and WordPress coding standards via composer.
 
-Basic build commands include: 
+Basic build commands include: \
 npm run build \
-npm run watch \
+npm run watch 
