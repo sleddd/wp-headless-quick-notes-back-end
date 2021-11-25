@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '36fd04db238ab1c9c436d6c12b98fc806c992f6b',
     'name' => 'wpstarterplugin/wpstarterplugin',
   ),
   'versions' => 
@@ -58,12 +58,12 @@
     ),
     'wpstarterplugin/wpstarterplugin' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '36fd04db238ab1c9c436d6c12b98fc806c992f6b',
     ),
   ),
 );

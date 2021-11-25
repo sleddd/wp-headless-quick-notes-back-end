@@ -5,6 +5,9 @@
  */
 class WpStarterPlugin {
 
+	public static $BOOK_CPT_NAME = 'Book';
+	public static $BOOK_CPT_TAX_GENRE = 'Genre';
+
 	public function __construct() {
 		$this->init();
 	}
@@ -23,6 +26,14 @@ class WpStarterPlugin {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		//add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		//add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+
+		$this->register_cpts();
+
+	}
+
+	public function register_cpts() { 
+		//cpts\register_post_type(self::$BOOK_CPT_NAME);
+		//cpts\add_taxonomy(self::$BOOK_CPT_TAX_GENRE, self::$BOOK_CPT_NAME);
 	}
 
 	/**

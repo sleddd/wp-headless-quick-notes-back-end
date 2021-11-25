@@ -13,6 +13,7 @@
 	"autoload": {
 		"psr-4": {
 			"WpStarterPlugin\\": "classes/"
-		}
+		},
+		"files": [ "lib/cpts.php" ]
 	}
 }
