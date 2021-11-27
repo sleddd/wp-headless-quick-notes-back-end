@@ -3,7 +3,7 @@ Contributors: Claudette Raynor \
 License: GPLv2 or later \
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WordPress plugin starter code.
+WordPress plugin starter code for easier development.
 
 == Installation ==
 
@@ -11,9 +11,11 @@ WordPress plugin starter code.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Developers notes ==
+To extend the plugin you will need both node and composer installed, then at command line run: 
+composer install \
+npm run build \
+
+To watch css and js files while in development use:
+npm run watch \
 
 This starter code uses Webpack 5 versus gulp to compile css and js. It does not polyfill by default. It uses autoloading and WordPress coding standards via composer.
-
-Basic build commands include: \
-npm run build \
-npm run watch 

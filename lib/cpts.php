@@ -131,7 +131,7 @@ function add_taxonomy( $taxonomy_name = false, $post_type_name = false, $args = 
 	}
 }
 
-// Takes in metbox title, fields, context, priority, and post type name and adds fields to post type.
+// Takes in metabox title, fields, context, priority, post type name and adds fields to post type.
 function add_meta_box( $title, $fields = array(), $context = 'normal', $priority = 'default', $post_type_name ) {
 
 	if ( ! empty( $title ) ) {
