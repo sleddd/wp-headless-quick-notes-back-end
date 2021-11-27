@@ -1,6 +1,6 @@
 <?php namespace WpStarterPlugin\Cpts;
 
-// Takes in post type name, args, and labels returning formatted args for 
+// Takes in post type name, args, and labels returning formatted args for
 // registering a post type.
 function get_post_type_args( $name = false, $args = array(), $labels = array() ) {
 	if ( ! $name ) {
@@ -45,7 +45,7 @@ function get_post_type_args( $name = false, $args = array(), $labels = array() )
 
 }
 
-// Takes in taxonomy name, args, and labels returning formatted args for 
+// Takes in taxonomy name, args, and labels returning formatted args for
 // registering a custom taxonomy.
 function get_taxonomy_args( $name, $args = array(), $labels = array() ) {
 	$name   = ucwords( str_replace( '_', ' ', $name ) );
@@ -69,7 +69,6 @@ function get_taxonomy_args( $name, $args = array(), $labels = array() ) {
 	);
 
 	$args = array_merge(
-
 		array(
 			'label'             => $plural,
 			'labels'            => $labels,
@@ -101,7 +100,7 @@ function register_post_type( $post_type_name = false, $args = array(), $labels =
 	);
 }
 
-/// Takes in custom taxonomy type name, args, labels, and post type name, then registers the taxonomy.
+// Takes in custom taxonomy type name, args, labels, and post type name, then registers the taxonomy.
 function add_taxonomy( $taxonomy_name = false, $post_type_name = false, $args = array(), $labels = array() ) {
 
 	if ( ! $post_type_name || ! $taxonomy_name ) {
@@ -130,4 +129,149 @@ function add_taxonomy( $taxonomy_name = false, $post_type_name = false, $args = 
 			}
 		);
 	}
+}
+
+// Takes in metbox title, fields, context, priority, and post type name and adds fields to post type.
+function add_meta_box( $title, $fields = array(), $context = 'normal', $priority = 'default', $post_type_name ) {
+
+	if ( ! empty( $title ) ) {
+
+		$post_type_name = strtolower( str_replace( '_', ' ', $post_type_name ) );
+
+		$box_id       = strtolower( str_replace( ' ', '_', $title ) );
+		$box_title    = ucwords( str_replace( '_', ' ', $title ) );
+		$box_context  = $context;
+		$box_priority = $priority;
+
+		global $custom_fields;
+		$custom_fields[ $title ] = $fields;
+
+		add_action(
+			'admin_init',
+			function() use ( $box_id, $box_title, $post_type_name, $box_context, $box_priority, $fields ) {
+				\add_meta_box(
+					$box_id,
+					$box_title,
+					function ( $post, $data ) {
+						 global $post;
+
+						// Nonce field for some validation
+						wp_nonce_field( plugin_basename( __FILE__ ), 'custom_post_type' );
+
+						// Get all inputs from $data
+						$custom_fields = $data['args'][0];
+
+						// Get the saved values
+						$meta = get_post_custom( $post->ID );
+
+						// Check the array and loop through it
+						if ( ! empty( $custom_fields ) ) {
+							echo '<div class="wp_starter_plugin_custom_meta">';
+							/* Loop through $custom_fields */
+							foreach ( $custom_fields as $label => $field ) {
+								$field_id_name = strtolower( str_replace( ' ', '_', $data['id'] ) ) . '_' . strtolower( str_replace( ' ', '_', $label ) );
+								switch ( $field['type'] ) {
+									case 'text':
+										echo '<label for="' . $field_id_name . '">' . $label . '</label><input type="text" name="' . $field_id_name . '" id="' . $field_id_name . '" value="' . $meta[ $field_id_name ][0] . '" />';
+										if ( array_key_exists( 'desc', $field ) ) {
+											echo '<span class="description">' . $field['desc'] . '</span>';
+										}
+										break;
+									case 'textarea':
+										echo '<label for="' . $field_id_name . '">' . $label . '</label><textarea name="' . $field_id_name . '" id="' . $field_id_name . '">' . $meta[ $field_id_name ][0] . '</textarea>';
+										if ( array_key_exists( 'desc', $field ) ) {
+											echo '<span class="description">' . $field['desc'] . '</span>';
+										}
+										break;
+									case 'checkbox':
+										echo '<label for="' . $field_id_name . '">' . $label . '</label>';
+										if ( array_key_exists( 'options', $field ) ) {
+											$options_count = 0;
+											$saved_options = maybe_unserialize( $meta[ $field_id_name ][0] );
+											echo '<div class="fieldset">';
+											foreach ( $field['options'] as $label => $value ) {
+												$checked = $saved_options[ $options_count ] === $value ? 'checked="checked"' : '';
+												echo '<label for="' . $field_id_name . '">' . $label . '</label><input type="checkbox" name="' . $field_id_name . '[' . $options_count . ']" id="' . $field_id_name . '" value="' . $value . '"' . $checked . '/>';
+												$options_count++;
+											}
+											echo '</div>';
+										}
+										if ( array_key_exists( 'desc', $field ) ) {
+											echo '<span class="description">' . $field['desc'] . '</span>';
+										}
+										break;
+									case 'radio':
+										echo '<label for="' . $field_id_name . '">' . $label . '</label>';
+										echo '<div class="fieldset">';
+										foreach ( $field['options'] as $label => $value ) {
+											$checked = $meta[ $field_id_name ][0] === $value ? 'checked="checked"' : '';
+											echo '<label for="' . $field_id_name . '">' . $label . '</label><input type="radio" name="' . $field_id_name . '" id="' . $field_id_name . '" value="' . $value . '"' . $checked . '/>';
+										}
+										echo '</div>';
+										if ( array_key_exists( 'desc', $field ) ) {
+											echo '<span class="description">' . $field['desc'] . '</span>';
+										}
+										break;
+									case 'select':
+										echo '<label for="' . $field_id_name . '">' . $label . '</label>';
+										echo '<select name="' . $field_id_name . '" id="' . $field_id_name . '">';
+										foreach ( $field['options'] as $label => $value ) {
+											echo '<option', $meta[ $field_id_name ][0] == $value ? ' selected="selected"' : '', ' value="' . $value . '">' . $label . '</option>';
+										}
+										echo '</select>';
+										if ( array_key_exists( 'desc', $field ) ) {
+											echo '<span class="description">' . $field['desc'] . '</span>';
+										}
+										break;
+								}
+							}
+							echo '</div>';
+						}
+					},
+					$post_type_name,
+					$box_context,
+					$box_priority,
+					array( $fields )
+				);
+			}
+		);
+
+		// Save post fields
+		add_action(
+			'save_post',
+			function() use ( $post_type_name ) {
+				 // Deny the WordPress autosave function
+				if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+					return;
+				}
+
+				if ( ! wp_verify_nonce( $_POST['custom_post_type'], plugin_basename( __FILE__ ) ) ) {
+					return;
+				}
+
+				 global $post;
+
+				if ( isset( $_POST ) && isset( $post->ID ) && get_post_type( $post->ID ) == $post_type_name ) {
+					global $custom_fields;
+
+					// Loop through each meta box
+					foreach ( $custom_fields as $title => $fields ) {
+						// Loop through all fields
+						foreach ( $fields as $label => $type ) {
+							$field_id_name = strtolower( str_replace( ' ', '_', $title ) ) . '_' . strtolower( str_replace( ' ', '_', $label ) );
+							$old           = get_post_meta( $post_id, $field_id_name, true );
+							$new           = $_POST[ $field_id_name ];
+							if ( '' == $new && $old ) {
+								delete_post_meta( $post_id, $field_id_name, $_POST[ $field_id_name ] );
+							} else {
+								update_post_meta( $post->ID, $field_id_name, $_POST[ $field_id_name ] );
+							}
+						}
+					}
+				}
+			}
+		);
+
+	}
+
 }

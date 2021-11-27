@@ -24,6 +24,7 @@ const nodeExternals = require('webpack-node-externals');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const excludedFiles = [ 
 	'styles.min.js', 
+	'admin.min.js'
 ];
 
 const path = require('path');
@@ -33,7 +34,8 @@ module.exports = {
     externals: [nodeExternals()],
     entry: {
        	plugin: ['/assets/js/index.js'],
-	styles:['/assets/scss/styles.scss']
+	styles:['/assets/scss/styles.scss'],
+	admin:['/assets/scss/admin.scss']
     },
     output: {
         path: path.resolve( 'dist'),

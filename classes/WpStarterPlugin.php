@@ -5,7 +5,7 @@
  */
 class WpStarterPlugin {
 
-	public static $BOOK_CPT_NAME = 'Book';
+	public static $BOOK_CPT_NAME      = 'Book';
 	public static $BOOK_CPT_TAX_GENRE = 'Genre';
 
 	public function __construct() {
@@ -24,16 +24,51 @@ class WpStarterPlugin {
 		// Enqueue scripts and styles
 		add_action( 'wp_enqueue_styles', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		//add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		//add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		// add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 
 		$this->register_cpts();
-
 	}
 
-	public function register_cpts() { 
-		//cpts\register_post_type(self::$BOOK_CPT_NAME);
-		//cpts\add_taxonomy(self::$BOOK_CPT_TAX_GENRE, self::$BOOK_CPT_NAME);
+	public function register_cpts() {
+		cpts\register_post_type( self::$BOOK_CPT_NAME );
+		cpts\add_taxonomy( self::$BOOK_CPT_TAX_GENRE, self::$BOOK_CPT_NAME );
+		cpts\add_meta_box(
+			'Book Information',
+			array(
+				'Title'        => array(
+					'type' => 'text',
+					'desc' => 'Add a book title.',
+				),
+				'Author'       => array( 'type' => 'text' ),
+				'Year written' => array( 'type' => 'text' ),
+				'Synopsis'     => array( 'type' => 'textarea' ),
+				'Stock'     => array(
+					'type'    => 'checkbox',
+					'options' => array(
+						'In Stock'    => 'in',
+						'Backorder' => 'backorder',
+					),
+				),
+				'Condition'    => array(
+					'type'    => 'select',
+					'options' => array(
+						'New'  => 'new',
+						'Used' => 'used',
+					),
+				),
+				'Format'       => array(
+					'type'    => 'radio',
+					'options' => array(
+						'Hardback'  => 'hardback',
+						'Paperback' => 'paperback',
+					),
+				),
+			),
+			'normal',
+			'default',
+			self::$BOOK_CPT_NAME
+		);
 	}
 
 	/**
@@ -50,10 +85,17 @@ class WpStarterPlugin {
 	}
 
 	/**
-	 * Manages registering plugin styles.
+	 * Manages registering front-end plugin styles.
 	 */
 	public function enqueue_styles() {
 		wp_enqueue_style( 'wpstarterplugin-styles', WP_STARTER_PLUGIN_URL . 'dist/styles.min.css', rand(), false, 'all' );
+	}
+
+	/**
+	 * Manages registering addmin plugin styles.
+	 */
+	public function enqueue_admin_styles() {
+		wp_enqueue_style( 'wpstarterplugin-styles', WP_STARTER_PLUGIN_URL . 'dist/admin.min.css', rand(), false, 'all' );
 	}
 
 	/**
