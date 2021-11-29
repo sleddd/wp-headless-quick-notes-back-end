@@ -22,3 +22,5 @@ To watch css and js files while in development use:
 npm run watch \
 
 This starter code uses Webpack 5 versus gulp to compile css and js. It does not polyfill by default. It uses autoloading and WordPress coding standards via composer.
+
+This project has it's webpack configuration adapated from: https://github.com/wp-strap/wordpress-webpack-workflow
