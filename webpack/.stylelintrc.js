@@ -17,6 +17,6 @@ module.exports = {
         "no-empty-source":         null,
         "indentation":             2,
         "at-rule-no-unknown":      null,
-        "scss/at-rule-no-unknown": true,
+        "scss/at-rule-no-unknown": true
     },
 }

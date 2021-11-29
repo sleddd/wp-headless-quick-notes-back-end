@@ -19,12 +19,12 @@
     "prod:watch": "webpack --env NODE_ENV=production --env production --watch",
     "dev": "webpack --env NODE_ENV=development",
     "dev:watch": "webpack --env NODE_ENV=development --watch",
-    "eslint": "eslint assets/js/**/*.js",
-    "eslint:fix": "eslint assets/js/**/*.js --fix",
-    "stylelint": "stylelint assets/**/**/*.{css,scss,pcss}",
-    "stylelint:fix": "stylelint assets/**/**/*.{css,scss,pcss} --fix",
-    "prettier": "prettier assets/js/**/*.js",
-    "prettier:fix": "prettier --write assets/js/**/*.js",
+    "eslint": "eslint src/**/**/*.js src/blocks/*.js src/blocks/**/js/*.js",
+    "eslint:fix": "eslint src/**/**/*.js src/blocks/*.js src/blocks/**/js/*.js  --fix",
+    "stylelint": "stylelint src/**/**/**/*.{css,scss,pcss}",
+    "stylelint:fix": "stylelint src/**/**/*.{css,scss,pcss} --fix",
+    "prettier": "prettier src/**/**/*.js src/blocks/*.js src/blocks/**/js/*.js",
+    "prettier:fix": "prettier --write src/**/**/*.js src/blocks/*.js src/blocks/**/js/*.js",
     "translate": "wp-pot --src '**/**/**/*.php' --dest-file 'languages/wordpress-webpack.pot' --package '{{the-project-name}}' --domain '{{the-project-text-domain}}' --last-translator '{{author_name}} <{{author_email}}>' --team '{{author_name}} <{{author_email}}>' --bug-report '{{author_url}}'"
   },
   "babel": {

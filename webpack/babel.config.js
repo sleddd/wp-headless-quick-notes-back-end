@@ -20,7 +20,6 @@ module.exports = api => {
                 }
             ],
 	    "@babel/preset-react",
-	    "@wordpress/babel-preset-default"
         ]
     }
 }

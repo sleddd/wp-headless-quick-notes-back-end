@@ -20,7 +20,12 @@ module.exports = {
     "parserOptions": {
         requireConfigFile: false,
     },
-    rules:   {},
+    rules:   {
+	"no-console": "off",
+	"bracketSpacing": "off",
+	"bracketSameLine": "off",
+	"jsxBracketSameLine": "off"
+    },
     globals: {
         "wp":     true,
         "jQuery": true,

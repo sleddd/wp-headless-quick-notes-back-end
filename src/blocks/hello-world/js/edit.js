@@ -1,8 +1,8 @@
-import { __ } from "@wordpress/i18n";
-import { RichText, useBlockProps } from "@wordpress/block-editor";
+import { __ } from '@wordpress/i18n';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
 
 export const Edit = ({ attributes, setAttributes }) => {
-	const blockProps = useBlockProps({className: 'hello-world' });
+	const blockProps = useBlockProps({ className: 'hello-world' });
 	return (
 		<div {...blockProps}>
 			<RichText
