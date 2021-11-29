@@ -6,12 +6,12 @@
  * @since 1.0.0
  */
 
-const ESLintPlugin    = require( 'eslint-webpack-plugin' ); //  Find and fix problems in your JavaScript code
-const StylelintPlugin = require( 'stylelint-webpack-plugin' ) // Helps you avoid errors and enforce conventions in your styles
+const ESLintPlugin    = require( 'eslint-webpack-plugin' );
+const StylelintPlugin = require( 'stylelint-webpack-plugin' );
 const externals = require('./config.externals');
 module.exports = ( projectOptions ) => {
 
-    process.env.NODE_ENV = 'development'; // Set environment level to 'development'
+    process.env.NODE_ENV = 'development';
 
     /**
      * The base skeleton
@@ -31,36 +31,28 @@ module.exports = ( projectOptions ) => {
      * JS rules
      */
     const jsRules = {
-        ...Base.jsRules, ...{
-            // add JS rules for development here
-        }
+        ...Base.jsRules
     };
 
     /**
      * Image rules
      */
     const imageRules = {
-        ...Base.imageRules, ...{
-            // add image rules for development here
-        }
+        ...Base.imageRules
     }
 
     /**
      * Optimizations rules
      */
     const optimizations = {
-        ...Base.optimizations, ...{
-            // add optimizations rules for development here
-        }
+        ...Base.optimizations
     }
 
     /**
      * Plugins
      */
     const plugins = [
-        ...Base.plugins, ...[
-            // add plugins for development here
-        ]
+        ...Base.plugins
     ]
     // Add eslint to plugins if enabled
     if ( projectOptions.projectJs.eslint === true ) {
@@ -82,11 +74,11 @@ module.exports = ( projectOptions ) => {
     }
 
     /**
-     * The configuration that's being returned to Webpack
+     * Configuration that's being returned to Webpack
      */
     return {
         mode:         'development',
-        entry:        projectOptions.projectJs.entry, // Define the starting point of the application.
+        entry:        projectOptions.projectJs.entry,
         output:       {
             path:     projectOptions.projectOutput,
             filename: projectOptions.projectJs.filename

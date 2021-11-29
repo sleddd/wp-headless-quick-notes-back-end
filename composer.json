@@ -12,7 +12,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"WpStarterPlugin\\": "src/classes/"
+			"WpStarterPlugin\\": [ "src/classes/", "src/classes/Cpts/"]
 		},
 		"files": [ "src/lib/cpts.php" ]
 	}

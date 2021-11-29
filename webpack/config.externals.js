@@ -1,4 +1,9 @@
 /**
+ * Externals code outlined in cgb-scripts config
+ * https://www.npmjs.com/package/cgb-scripts
+ */
+
+/**
  * Utility methods for use when generating build configuration objects.
  */
  const { join } = require( 'path' );

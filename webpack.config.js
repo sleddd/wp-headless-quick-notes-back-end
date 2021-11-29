@@ -7,7 +7,7 @@ const path = require( 'path' );
 
 // Paths to find our files and provide BrowserSync functionality.
 const projectPaths = {
-    projectDir:        		__dirname, // Current project directory absolute path.
+    projectDir:        		__dirname,
     projectJsPath:     		path.resolve( __dirname, 'src/assets/js' ),
     projectJsBlocksPath:     	path.resolve( __dirname, 'src/blocks' ),
     projectScssPath:   		path.resolve( __dirname, 'src/assets/scss' ),

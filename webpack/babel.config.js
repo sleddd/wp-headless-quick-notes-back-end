@@ -13,7 +13,6 @@ module.exports = api => {
                 {
                     corejs: "3.1.3",
                     useBuiltIns: "entry",
-                    // caller.target will be the same as the target option from webpack
                     targets: api.caller( caller => caller && caller.target === "node" )
                                  ? { node: "current" }
                                  : { chrome: "58", ie: "11" }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       WordPress plugin starter code
+ * Plugin Name:       WordPress Plugin Starter Code
  * Description:       Base code for beginning a WordPress Plugin
  * Requires at least: 5.0
  * Requires PHP:      7.0
@@ -17,5 +17,6 @@ define( 'WP_STARTER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 /* Autoloader */
 require WP_STARTER_PLUGIN_PATH . 'vendor/autoload.php';
-
-new \WpStarterPlugin\WpStarterPlugin();
+$wp_starter_plugin = new \WpStarterPlugin\WpStarterPlugin();
+// Globally accessing custom post types for plugin example
+//print_r($wp_starter_plugin::$POST_TYPES['example']::POST_TYPE_NAME);

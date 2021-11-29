@@ -21,27 +21,21 @@ module.exports = ( projectOptions ) => {
      * CSS rules
      */
     const cssRules = {
-        ...Base.cssRules, ...{
-            // add CSS rules for production here
-        }
+        ...Base.cssRules
     };
 
     /**
      * JS rules
      */
     const jsRules = {
-        ...Base.jsRules, ...{
-            // add JS rules for production here
-        }
+        ...Base.jsRules
     };
 
     /**
      * Image rules
      */
     const imageRules = {
-        ...Base.imageRules, ...{
-            // add image rules for production here
-        }
+        ...Base.imageRules
     }
 
     /**
@@ -59,7 +53,6 @@ module.exports = ( projectOptions ) => {
                     }
                 }
             }
-            // add optimizations rules for production here
         }
     }
 
@@ -71,7 +64,6 @@ module.exports = ( projectOptions ) => {
             new PurgecssPlugin( { // Scans files and removes unused CSS
                 paths: glob.sync( projectOptions.projectCss.purgeCss.paths, { nodir: true } ),
             } ),
-            // add plugins for production here
         ]
     ]
 
@@ -86,11 +78,11 @@ module.exports = ( projectOptions ) => {
     }
 
     /**
-     * The configuration that's being returned to Webpack
+     * Configuration that's being returned to Webpack
      */
     return {
         mode:         'production',
-        entry:        projectOptions.projectJs.entry, // Define the starting point of the application.
+        entry:        projectOptions.projectJs.entry,
         output:       {
             path:     projectOptions.projectOutput,
             filename: projectOptions.projectJs.filename
