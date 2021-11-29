@@ -7,7 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
 {
     public static $files = array (
-        '6ff2be13899dc94aef75e43b9734936d' => __DIR__ . '/../..' . '/lib/cpts.php',
+        'adaedfb8214b270ce0289a48a0ad2997' => __DIR__ . '/../..' . '/src/lib/cpts.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -28,7 +28,8 @@ class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
     public static $prefixDirsPsr4 = array (
         'WpStarterPlugin\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/classes',
+            0 => __DIR__ . '/../..' . '/src/classes',
+            1 => __DIR__ . '/../..' . '/src/classes/Cpts',
         ),
         'VariableAnalysis\\' => 
         array (
@@ -42,6 +43,15 @@ class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin' => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src/Plugin.php',
+        'VariableAnalysis\\Lib\\Constants' => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis/Lib/Constants.php',
+        'VariableAnalysis\\Lib\\Helpers' => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis/Lib/Helpers.php',
+        'VariableAnalysis\\Lib\\ScopeInfo' => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis/Lib/ScopeInfo.php',
+        'VariableAnalysis\\Lib\\ScopeType' => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis/Lib/ScopeType.php',
+        'VariableAnalysis\\Lib\\VariableInfo' => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis/Lib/VariableInfo.php',
+        'VariableAnalysis\\Sniffs\\CodeAnalysis\\VariableAnalysisSniff' => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis/Sniffs/CodeAnalysis/VariableAnalysisSniff.php',
+        'WpStarterPlugin\\Cpts\\ExamplePostType' => __DIR__ . '/../..' . '/src/classes/Cpts/ExamplePostType.php',
+        'WpStarterPlugin\\WpStarterPlugin' => __DIR__ . '/../..' . '/src/classes/WpStarterPlugin.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

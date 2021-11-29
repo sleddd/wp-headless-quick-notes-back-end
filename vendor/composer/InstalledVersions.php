@@ -30,19 +30,19 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '36fd04db238ab1c9c436d6c12b98fc806c992f6b',
+    'reference' => '4485b4248cc15cc59f1cd8037e54c3c978b08ce1',
     'name' => 'wpstarterplugin/wpstarterplugin',
   ),
   'versions' => 
   array (
     'automattic/vipwpcs' => 
     array (
-      'pretty_version' => '2.3.2',
-      'version' => '2.3.2.0',
+      'pretty_version' => '2.3.3',
+      'version' => '2.3.3.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'efacebef421334d54b99afa92fb8fa645336a8a7',
+      'reference' => '6cd0a6a82bc0ac988dbf9d6a7c2e293dc8ac640b',
     ),
     'dealerdirect/phpcodesniffer-composer-installer' => 
     array (
@@ -55,21 +55,21 @@ private static $installed = array (
     ),
     'sirbrillig/phpcs-variable-analysis' => 
     array (
-      'pretty_version' => 'v2.11.1',
-      'version' => '2.11.1.0',
+      'pretty_version' => 'v2.11.2',
+      'version' => '2.11.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '9df9ade5961a3505d0d24b0e6be2ab82e335f753',
+      'reference' => '3fad28475bfbdbf8aa5c440f8a8f89824983d85e',
     ),
     'squizlabs/php_codesniffer' => 
     array (
-      'pretty_version' => '3.6.0',
-      'version' => '3.6.0.0',
+      'pretty_version' => '3.6.1',
+      'version' => '3.6.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'ffced0d2c8fa8e6cdc4d695a743271fab6c38625',
+      'reference' => 'f268ca40d54617c6e06757f83f699775c9b3ff2e',
     ),
     'wp-coding-standards/wpcs' => 
     array (
@@ -87,7 +87,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '36fd04db238ab1c9c436d6c12b98fc806c992f6b',
+      'reference' => '4485b4248cc15cc59f1cd8037e54c3c978b08ce1',
     ),
   ),
 );
