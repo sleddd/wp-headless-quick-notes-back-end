@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies.
  */
-import { registerBlockType, getBlockTypes, getCategories } from '@wordpress/blocks';
+import { registerBlockType } from '@wordpress/blocks';
 
 /**
  * Blocks.
@@ -12,6 +12,4 @@ const blocks = [
 	helloWorld,
 ];
 
-blocks.forEach((settings) => registerBlockType( settings.name, { title: settings.title, edit: settings.edit, save: settings.save}));
-console.log(getBlockTypes());
-console.log(getCategories());
+blocks.forEach((settings) => registerBlockType(settings.name, settings));

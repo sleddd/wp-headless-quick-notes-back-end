@@ -99,5 +99,6 @@ module.exports = ( projectOptions ) => {
         optimization: optimizations,
         module:       { rules: [ cssRules, jsRules, imageRules ], },
         plugins:      plugins,
+	externals: externals
     }
 }

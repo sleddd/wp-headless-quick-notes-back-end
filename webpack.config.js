@@ -43,7 +43,7 @@ const projectFiles = {
 	    blocks:   projectPaths.projectJsBlocksPath + '/blocks.js',
         },
         rules:    {
-            test: /\.m?(js|jsx)$/
+            test: /\.m?js$/
         }
     },
     // CSS configurations for development and production

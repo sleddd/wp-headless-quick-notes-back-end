@@ -8,7 +8,7 @@
 
 const ESLintPlugin    = require( 'eslint-webpack-plugin' ); //  Find and fix problems in your JavaScript code
 const StylelintPlugin = require( 'stylelint-webpack-plugin' ) // Helps you avoid errors and enforce conventions in your styles
-
+const externals = require('./config.externals');
 module.exports = ( projectOptions ) => {
 
     process.env.NODE_ENV = 'development'; // Set environment level to 'development'
@@ -94,6 +94,7 @@ module.exports = ( projectOptions ) => {
         devtool:      sourceMap.devtool,
         optimization: optimizations,
         module:       { rules: [ cssRules, jsRules, imageRules ], },
-        plugins:      plugins,
+        plugins:   plugins,
+	externals: externals
     }
 }

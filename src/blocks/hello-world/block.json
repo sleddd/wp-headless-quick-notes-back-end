@@ -2,7 +2,7 @@
 	"name":"wpstarterplugin/hello-world",
 	"title": "Hello World",
 	"category": "text",
-	"icon": "star",
+	"icon": "admin-comments",
 	"description": "Hello World block.",
 	"keywords": ["hello","world"],
 	"version": "1.0",
@@ -22,7 +22,5 @@
 	"styles": [
 	    { "name": "default", "label": "Default", "isDefault": true },
 	    { "name": "other", "label": "Other" }
-	],
-	"editorScript": "file:../../../dist/js/blocks.js",
-	"script": "file:../../../dist/js/blocks.js"
+	]
     }

@@ -25,13 +25,13 @@ class WpStarterPlugin {
 		$this->register_cpts();
 
 		// Register custom blocks.
-		add_action( 'init', array( $this, 'register_blocks' ));
+		add_action( 'init', array( $this, 'register_blocks' ) );
 
 		// Enqueue scripts and styles
 		add_action( 'wp_enqueue_styles', array( $this, 'enqueue_frontend_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_backend_scripts' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_backend_styles' ) );		
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_backend_styles' ) );
 	}
 
 	public function register_cpts() {
@@ -76,10 +76,21 @@ class WpStarterPlugin {
 	}
 
 	public function register_blocks() {
-		register_block_type_from_metadata(
-			WP_STARTER_PLUGIN_PATH . "src/blocks/hello-world/block.json",
+		wp_enqueue_script(
+			'wpstarterplugin-blockjs', // Handle.
+			WP_STARTER_PLUGIN_URL . 'dist/js/blocks.js',
+			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components' ),
+			null,
+			true 
 		);
-		wp_enqueue_script( 'wpstarterplugin-block-scripts', WP_STARTER_PLUGIN_URL . 'dist/js/blocks.js',[], rand(), true );
+		wp_localize_script(
+			'wpstarterplugin-blockjs',
+			'cgbGlobal',
+			array(
+				'pluginDirPath' => WP_STARTER_PLUGIN_PATH,
+				'pluginDirUrl'  => WP_STARTER_PLUGIN_URL,
+			)
+		);
 	}
 
 	/**
