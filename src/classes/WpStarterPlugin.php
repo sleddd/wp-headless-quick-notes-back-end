@@ -76,10 +76,6 @@ class WpStarterPlugin {
 	}
 
 	public function register_blocks() {
-		register_block_type('awp/firstblock', [
-			'editor_script' => 'wpstarterplugin-block-scripts',
-		]);
-
 		register_block_type_from_metadata(
 			WP_STARTER_PLUGIN_PATH . "src/blocks/hello-world/block.json",
 		);

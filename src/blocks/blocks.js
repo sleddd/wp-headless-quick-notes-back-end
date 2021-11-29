@@ -13,19 +13,5 @@ const blocks = [
 ];
 
 blocks.forEach((settings) => registerBlockType( settings.name, { title: settings.title, edit: settings.edit, save: settings.save}));
- 
-registerBlockType('awp/firstblock', {
-	title: 'My first block',
-	category: 'admin-comments',
-	icon: 'smiley',
-	description: 'Learning in progress',
-	keywords: ['example', 'test'],
-	edit: () => { 
-		return <div>:)</div> 
-	},
-	save: () => { 
-		return <div>:)</div> 
-	}
-});
 console.log(getBlockTypes());
- console.log(getCategories());
+console.log(getCategories());
