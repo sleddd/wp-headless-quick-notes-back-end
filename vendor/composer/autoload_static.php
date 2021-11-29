@@ -7,7 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
 {
     public static $files = array (
-        '6ff2be13899dc94aef75e43b9734936d' => __DIR__ . '/../..' . '/lib/cpts.php',
+        'adaedfb8214b270ce0289a48a0ad2997' => __DIR__ . '/../..' . '/src/lib/cpts.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -28,7 +28,7 @@ class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
     public static $prefixDirsPsr4 = array (
         'WpStarterPlugin\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/classes',
+            0 => __DIR__ . '/../..' . '/src/classes',
         ),
         'VariableAnalysis\\' => 
         array (

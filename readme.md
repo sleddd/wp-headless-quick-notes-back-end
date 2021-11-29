@@ -15,6 +15,9 @@ To extend the plugin you will need both node and composer installed, then at com
 composer install \
 npm run build \
 
+If you need to regenerate autload files use: 
+composer dump-autoload
+
 To watch css and js files while in development use:
 npm run watch \
 

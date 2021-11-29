@@ -1,0 +1,31 @@
+.wp_starter_plugin_custom_meta label {
+  display: block;
+  width: 100%;
+  margin-top: 1.1rem;
+}
+.wp_starter_plugin_custom_meta input, .wp_starter_plugin_custom_meta textarea, .wp_starter_plugin_custom_meta select {
+  margin: 0.5rem auto 0 auto;
+}
+.wp_starter_plugin_custom_meta input[type=text], .wp_starter_plugin_custom_meta textarea, .wp_starter_plugin_custom_meta select {
+  width: 100%;
+}
+.wp_starter_plugin_custom_meta input[type=radio],
+.wp_starter_plugin_custom_meta input[type=checkbox] {
+  margin: -2px 0.5rem 0 0.3rem;
+}
+.wp_starter_plugin_custom_meta .fieldset {
+  width: 100%;
+}
+.wp_starter_plugin_custom_meta .fieldset label {
+  display: inline;
+  width: auto;
+  margin-top: 0;
+}
+.wp_starter_plugin_custom_meta .description {
+  width: 100%;
+  display: block;
+  font-style: italic;
+  font-size: small;
+  margin: 0.4rem auto 0.5rem auto;
+  color: #888;
+}

@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    '6ff2be13899dc94aef75e43b9734936d' => $baseDir . '/lib/cpts.php',
+    'adaedfb8214b270ce0289a48a0ad2997' => $baseDir . '/src/lib/cpts.php',
 );

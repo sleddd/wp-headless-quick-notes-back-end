@@ -1,96 +1,126 @@
-// Removes old files and adds new 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const cleanOptions = { 
-	cleanStaleWebpackAssets: true,
-	verbose: true, 
-	dry: false, 
-	exclude: [],
+/**
+ * This is a main entrypoint for Webpack config.
+ *
+ * @since 2.0.0
+ */
+const path = require( 'path' );
+
+// Paths to find our files and provide BrowserSync functionality.
+const projectPaths = {
+    projectDir:        		__dirname, // Current project directory absolute path.
+    projectJsPath:     		path.resolve( __dirname, 'src/assets/js' ),
+    projectJsBlocksPath:     	path.resolve( __dirname, 'src/blocks' ),
+    projectScssPath:   		path.resolve( __dirname, 'src/assets/scss' ),
+    projectImagesPath: 		path.resolve( __dirname, 'src/assets/images' ),
+    projectOutput:     		path.resolve( __dirname, 'dist' ),
+    projectWebpack:    		path.resolve( __dirname, 'webpack' ),
 };
 
-// Extracts CSS into separate file
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const cssOptions = {
-	filename: '[name].min.css',
-};
-
-// Minifies CSS
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-
-// Used to ignore node modules when bundling 
-const nodeExternals = require('webpack-node-externals');
-
-// Used to remove or exclude files from dist build 
-// primarily empty js files from css extractor
-const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
-const excludedFiles = [ 
-	'styles.min.js', 
-	'admin.min.js'
-];
-
-const path = require('path');
-
-module.exports = {
-    mode: 'none',
-    externals: [nodeExternals()],
-    entry: {
-       	plugin: ['/assets/js/index.js'],
-	styles:['/assets/scss/styles.scss'],
-	admin:['/assets/scss/admin.scss']
+// Files to bundle
+const projectFiles = {
+    // BrowserSync settings
+    browserSync: {
+        enable: true, // enable or disable browserSync
+        host:   'localhost',
+        port:   3000,
+        mode:   'proxy', // proxy | server
+        server: { baseDir: [ 'public' ] }, // can be ignored if using proxy
+        proxy:  'http://test.local',
+        // BrowserSync will automatically watch for changes to any files connected to our entry,
+        // including both JS and Sass files. We can use this property to tell BrowserSync to watch
+        // for other types of files, in this case PHP files, in our project.
+        files:  '**/**/**.php',
+        reload: true, // Set false to prevent BrowserSync from reloading and let Webpack Dev Server take care of this
+        // browse to http://localhost:3000/ during development,
     },
-    output: {
-        path: path.resolve( 'dist'),
-        filename: "[name].min.js"
+    // JS configurations for development and production
+    projectJs: {
+        eslint:   true, // enable or disable eslint  | this is only enabled in development env.
+        filename: 'js/[name].js',
+        entry:    {
+            frontend: projectPaths.projectJsPath + '/frontend.js',
+            backend:  projectPaths.projectJsPath + '/backend.js',
+	    blocks:   projectPaths.projectJsBlocksPath + '/blocks.js',
+        },
+        rules:    {
+            test: /\.m?(js|jsx)$/
+        }
     },
-    resolve: {
-        extensions: [".ts", ".js"],
-	fallback: {
-		"util": false, 
-		"path": false,
-		"crypto": false, 
-		"https": false,
-		"http": false,
-		"url": false, 
-		"vm": false,
-		"buffer": false,
-		"querystring": false,
-		"os": false,
-		"fs": false,
-		"stream": false,
-		"assert": false,
-		"constants": false,
-		"zlib": false,
-		"child_process": false,
-		"worker_threads": false,
-		"inspector": false,
-	}
+    // CSS configurations for development and production
+    projectCss: {
+        postCss:   projectPaths.projectWebpack + '/postcss.config.js',
+        stylelint: true, // enable or disable stylelint | this is only enabled in development env.
+        filename:  'css/[name].css',
+        use:       'sass', // sass || postcss
+        // ^ If you want to change from Sass to PostCSS or PostCSS to Sass then you need to change the
+        // styling files which are being imported in "assets/src/js/frontend.js" and "assets/src/js/backend.js".
+        // So change "import '../sass/backend.scss'" to "import '../postcss/backend.pcss'" for example
+        rules: {
+	    css: {
+		test: /\.css$/i
+	    },
+            sass:    {
+                test: /\.s[ac]ss$/i
+            },
+            postcss: {
+                test: /\.pcss$/i
+            }
+        },
+        purgeCss: { // PurgeCSS is only being activated in production environment
+            paths: [ // Specify content that should be analyzed by PurgeCSS
+                __dirname + '/src/assets/src/js/**/*',
+                __dirname + '/src/blocks/**/**/*',
+                __dirname + '/*.php',
+            ]
+        }
     },
-    module: {
-	rules: [
-	  {
-		test: /\.(scss|css)$/,
-		use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-	  },
-	  {
-		test: /\.js$/,
-		exclude: /node_modules/,
-		use: {
-			loader: 'babel-loader',
-			options: {
-				presets: ['@babel/env', 'minify']
-			}	
-		}
-	 }
-	],
+    // Source Maps configurations
+    projectSourceMaps: {
+        // Sourcemaps are nice for debugging but takes lots of time to compile,
+        // so we disable this by default and can be enabled when necessary
+        enable: false,
+        env:    'dev', // dev | dev-prod | prod
+        // ^ Enabled only for development on default, use "prod" to enable only for production
+        // or "dev-prod" to enable it for both production and development
+        devtool: 'source-map' // type of sourcemap, see more info here: https://webpack.js.org/configuration/devtool/
+        // ^ If "source-map" is too slow, then use "cheap-source-map" which struck a good balance between build performance and debuggability.
     },
-    optimization: {
-	minimize: true,
-	minimizer: [
-	  new CssMinimizerPlugin(),
-	],
-      },
-    plugins: [
-	new CleanWebpackPlugin( cleanOptions ),
-	new IgnoreEmitPlugin( excludedFiles ),
-	new MiniCssExtractPlugin( cssOptions ),
-      ],
+    // Images configurations for development and production
+    projectImages: {
+        rules: {
+            test: /\.(jpe?g|png|gif|svg)$/i,
+        },
+        // Optimization settings
+        minimizerOptions: {
+            // Lossless optimization with custom option
+            // Feel free to experiment with options for better result for you
+            // More info here: https://webpack.js.org/plugins/image-minimizer-webpack-plugin/
+            plugins: [
+                [ 'gifsicle', { interlaced: true } ],
+                [ 'jpegtran', { progressive: true } ],
+                [ 'optipng', { optimizationLevel: 5 } ],
+                [ 'svgo', {
+                    plugins: [
+                        { removeViewBox: false, },
+                    ],
+                }, ],
+            ],
+        }
+    }
+}
+
+// Merging the projectFiles & projectPaths objects
+const projectOptions = {
+    ...projectPaths, ...projectFiles,
+    projectConfig: {}
+}
+
+// Get the development or production setup based
+// on the script from package.json
+module.exports = env => {
+    if ( env.NODE_ENV === 'production' ) {
+        return require( './webpack/config.production' )( projectOptions );
+    } else {
+        return require( './webpack/config.development' )( projectOptions );
+    }
 };
