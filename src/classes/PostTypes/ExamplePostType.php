@@ -1,4 +1,4 @@
-<?php namespace WpStarterPlugin\Cpts;
+<?php namespace WpStarterPlugin\PostTypes;
 
 /**
  * Handles the construction of Example custom post type

@@ -1,4 +1,4 @@
-<?php namespace WpStarterPlugin\Cpts;
+<?php namespace WpStarterPlugin\PostTypes;
 
 // Takes in post type name, args, and labels returning formatted args for
 // registering a post type.

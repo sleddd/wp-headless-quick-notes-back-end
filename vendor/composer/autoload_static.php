@@ -7,7 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
 {
     public static $files = array (
-        'adaedfb8214b270ce0289a48a0ad2997' => __DIR__ . '/../..' . '/src/lib/cpts.php',
+        '95c987c510bf5845a8e27473f7ea87bf' => __DIR__ . '/../..' . '/src/lib/postTypes.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -29,7 +29,7 @@ class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
         'WpStarterPlugin\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/classes',
-            1 => __DIR__ . '/../..' . '/src/classes/Cpts',
+            1 => __DIR__ . '/../..' . '/src/classes/PostTypes',
         ),
         'VariableAnalysis\\' => 
         array (
@@ -50,7 +50,7 @@ class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
         'VariableAnalysis\\Lib\\ScopeType' => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis/Lib/ScopeType.php',
         'VariableAnalysis\\Lib\\VariableInfo' => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis/Lib/VariableInfo.php',
         'VariableAnalysis\\Sniffs\\CodeAnalysis\\VariableAnalysisSniff' => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis/Sniffs/CodeAnalysis/VariableAnalysisSniff.php',
-        'WpStarterPlugin\\Cpts\\ExamplePostType' => __DIR__ . '/../..' . '/src/classes/Cpts/ExamplePostType.php',
+        'WpStarterPlugin\\PostTypes\\ExamplePostType' => __DIR__ . '/../..' . '/src/classes/PostTypes/ExamplePostType.php',
         'WpStarterPlugin\\WpStarterPlugin' => __DIR__ . '/../..' . '/src/classes/WpStarterPlugin.php',
     );
 

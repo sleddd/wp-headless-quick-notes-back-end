@@ -34,7 +34,7 @@ class WpStarterPlugin {
 	}
 
 	public function register_cpts() {
-		self::$POST_TYPES['example'] = new \WpStarterPlugin\Cpts\ExamplePostType();
+		self::$POST_TYPES['example'] = new \WpStarterPlugin\PostTypes\ExamplePostType();
 	}
 
 	public function register_blocks() {

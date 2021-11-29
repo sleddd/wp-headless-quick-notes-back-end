@@ -12,8 +12,8 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"WpStarterPlugin\\": [ "src/classes/", "src/classes/Cpts/"]
+			"WpStarterPlugin\\": [ "src/classes/", "src/classes/PostTypes/"]
 		},
-		"files": [ "src/lib/cpts.php" ]
+		"files": [ "src/lib/postTypes.php" ]
 	}
 }
