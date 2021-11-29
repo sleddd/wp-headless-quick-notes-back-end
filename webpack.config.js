@@ -21,11 +21,11 @@ const projectFiles = {
     // BrowserSync settings
     browserSync: {
         enable: true, // enable or disable browserSync
-        host:   'localhost',
-        port:   3000,
+        host:   'test.local',
+        port:   '62584',
         mode:   'proxy', // proxy | server
         server: { baseDir: [ 'public' ] }, // can be ignored if using proxy
-        proxy:  'http://test.local',
+        proxy:  '',
         // BrowserSync will automatically watch for changes to any files connected to our entry,
         // including both JS and Sass files. We can use this property to tell BrowserSync to watch
         // for other types of files, in this case PHP files, in our project.
