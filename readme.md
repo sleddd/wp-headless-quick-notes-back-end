@@ -4,6 +4,7 @@ License: GPLv2 or later \
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 WordPress plugin starter code for easier development.
+
 ![Composer](https://img.shields.io/badge/Composer-brightgreen)
 ![Node 14.16.0](https://img.shields.io/badge/Node-14.16.0-brightgreen)
 ![WebPack 5.12.3](https://img.shields.io/badge/WebPack-5.12.3-brightgreen)
@@ -12,7 +13,7 @@ WordPress plugin starter code for easier development.
 ![PostCSS 8.2.4](https://img.shields.io/badge/PostCSS-8.2.4-brightgreen)
 ![PurgeCSS 3.1.3](https://img.shields.io/badge/PurgeCSS-3.1.3-brightgreen)
 
-This plugin uses webpack code from ![wp-strap/wordpress-webpack-workflow](https://github.com/wp-strap/wordpress-webpack-workflow)which has been modified to support the development of JavaScript registered Gutenberg blocks. 
+This plugin uses webpack code from [wp-strap/wordpress-webpack-workflow](https://github.com/wp-strap/wordpress-webpack-workflow) which has been modified to support the development of JavaScript registered Gutenberg blocks. 
 
 This plugin owes wp-strap a good coffee! For more details on the options for wp-strap/wordpress-webpack-workflow visit:
 https://github.com/wp-strap/wordpress-webpack-workflow
@@ -28,7 +29,8 @@ From the plugin directory command line run:
 - composer install or composer i
 - npm run build
 
-== Developer Notes ==
+
+== Developer Notes == 
 
 NPM Scripts include: 
 - npm run prod
@@ -36,9 +38,9 @@ NPM Scripts include:
 - npm run dev
 - npm run dev-watch
 
-This starter code uses Webpack 5 versus gulp to compile css and js. It does not polyfill by default. It uses autoloading and WordPress coding standards via composer and will integrate nicely with the VS PHP ![CodeSniffer and Beautifier](https://marketplace.visualstudio.com/items?itemName=ValeryanM.vscode-phpsab) if you point it to the composer.json.
+This starter code uses Webpack 5 versus gulp. It uses autoloading and WordPress coding standards via composer and will integrate nicely with the VS PHP [CodeSniffer and Beautifier](https://marketplace.visualstudio.com/items?itemName=ValeryanM.vscode-phpsab) if you point it to the composer.json.
 
-To add a custom post type see the example post type in src/classes/PostTypes. 
+To add a custom post type see the example post type in src/classes/PostTypes/ExamplePostType.php. 
 
 You can also build custom posts types and taxonomies via the library functions found in src/lib/postTypes.php
 Examples:
@@ -47,16 +49,16 @@ Examples:
 
 Post types do support basic custom meta boxes and fields for text, textarea, checkboxes, radio, and select.
 
-Additional support should come from a 3rd party like ACF or Metabox.io.
+For additional support consider a 3rd party plugin like ACF or Metabox.io.
 
 To add a block: 
-- Go to src/blocks and add a folder the block name. 
+- Go to src/blocks and add a folder with the block name. 
 - Add your block.json and block.js file to the block folder.
-- Import block.js file into src/blocks/blocks.js
+- Import the block.js file into src/blocks/blocks.js
 
 See hello world block as an example. You can also register a block in PHP in the main plugin file WpStarterPlugin.php.
 
-To rename this plugin with you plugin name, you will want to find and replace the following: 
+To rename this plugin with your plugin name, you will want to find and replace the following: 
 - WP_STARTER_PLUGIN
 - WpStarterPlugin
 - wpstarterplugin
