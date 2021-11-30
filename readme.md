@@ -15,7 +15,7 @@ WordPress plugin starter code for easier development.
 
 This plugin uses webpack code from [wp-strap/wordpress-webpack-workflow](https://github.com/wp-strap/wordpress-webpack-workflow) which has been modified to support the development of JavaScript registered Gutenberg blocks. 
 
-This plugin owes wp-strap a good coffee! For more details on the options for wp-strap/wordpress-webpack-workflow visit:
+This plugin owes wp-strap a good cup of coffee! For more details on the options for wp-strap/wordpress-webpack-workflow visit:
 https://github.com/wp-strap/wordpress-webpack-workflow
 
 
