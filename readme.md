@@ -38,7 +38,7 @@ NPM Scripts include:
 - npm run dev
 - npm run dev-watch
 
-This starter code uses Webpack 5 versus gulp. It uses autoloading and WordPress coding standards via composer and will integrate nicely with the VS PHP [CodeSniffer and Beautifier](https://marketplace.visualstudio.com/items?itemName=ValeryanM.vscode-phpsab) if you point it to the composer.json.
+This starter code uses Webpack 5 versus gulp. It uses autoloading and WordPress coding standards via composer and will integrate nicely with the VS [PHP CodeSniffer and Beautifier](https://marketplace.visualstudio.com/items?itemName=ValeryanM.vscode-phpsab) if you point it to the composer.json.
 
 To add a custom post type see the example post type in src/classes/PostTypes/ExamplePostType.php. 
 
