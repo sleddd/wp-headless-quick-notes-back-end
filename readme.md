@@ -44,7 +44,7 @@ To add a custom post type see the example post type in src/classes/PostTypes/Exa
 
 You can also build custom posts types and taxonomies via the library functions found in src/lib/postTypes.php
 Examples:
-\WpStarterPlugin\PostTypes\register_post_type('example');
+\WpStarterPlugin\PostTypes\register_post_type('example');\
 \WpStarterPlugin\PostTypes\add_taxonomy('example tax', 'example');
 
 Post types do support basic custom meta boxes and fields for text, textarea, checkboxes, radio, and select.
