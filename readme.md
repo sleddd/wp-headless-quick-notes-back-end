@@ -65,5 +65,5 @@ To rename this plugin with your plugin name, you will want to find and replace t
 
 Be sure to run composer dump-autoload -o to rebuild the autoload files when done.
 
-!! This plugin is use at your own risk and you can do what you want with it. While this plugin is not currently being maintained except when I get time, I do plan to add additional support for REST API, customizer, settings, and easy ACF integration. Although, I do not know when that will be.
+!! This plugin is use at your own risk and you can do what you want with it. While this plugin is not currently being maintained except when I get time, I do plan to add additional support for REST API, customizer, settings, tables, and easy ACF integration. Although, I do not know when that will be.
 
