@@ -5,7 +5,7 @@
  */
 class WpStarterPlugin {
 
-	public static $POST_TYPES = [];
+	public static $POST_TYPES = array();
 
 	public function __construct() {
 		$this->init();
@@ -31,6 +31,9 @@ class WpStarterPlugin {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_backend_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_backend_styles' ) );
+
+		// Add browsersync
+		// add_action( 'wp_footer', array( $this, 'add_browser_sync' ));
 	}
 
 	public function register_cpts() {
@@ -47,7 +50,7 @@ class WpStarterPlugin {
 			WP_STARTER_PLUGIN_URL . 'dist/js/blocks.js',
 			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components' ),
 			null,
-			true 
+			true
 		);
 		wp_localize_script(
 			'wpstarterplugin-blockjs',
@@ -116,5 +119,11 @@ class WpStarterPlugin {
 				'nonce'   => $nonce,
 			)
 		);
+	}
+
+	public function add_browser_sync() {
+		echo '<script id="__bs_script__">//<![CDATA[
+			document.write("<script async src=' . 'http://HOST:62584/browser-sync/browser-sync-client.js?v=2.27.7' . '><\/script>".replace("HOST", location.hostname));
+		    //]]></script>';
 	}
 }
