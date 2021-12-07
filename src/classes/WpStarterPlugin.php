@@ -38,6 +38,10 @@ class WpStarterPlugin {
 	}
 
 	public function register_blocks() {
+		wp_enqueue_style(
+			'wpstarterplugin-blockcss', // Handle.
+			WP_STARTER_PLUGIN_URL . 'dist/css/blocks.css'
+		);
 		wp_enqueue_script(
 			'wpstarterplugin-blockjs', // Handle.
 			WP_STARTER_PLUGIN_URL . 'dist/js/blocks.js',
@@ -47,7 +51,7 @@ class WpStarterPlugin {
 		);
 		wp_localize_script(
 			'wpstarterplugin-blockjs',
-			'cgbGlobal',
+			'wpstarterplugin',
 			array(
 				'pluginDirPath' => WP_STARTER_PLUGIN_PATH,
 				'pluginDirUrl'  => WP_STARTER_PLUGIN_URL,

@@ -47,18 +47,11 @@
       "./webpack/.stylelintrc.js"
     ]
   },
-  "dependencies": {
-    "@wordpress/block-editor": "^8.0.5",
-    "@wordpress/blocks": "^11.1.4",
-    "@wordpress/components": "^19.1.0",
-    "@wordpress/eslint-plugin": "^9.3.0",
-    "@wordpress/i18n": "^4.2.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.16.0",
-    "@wordpress/babel-preset-default": "6.4.1",
     "autoprefixer": "^10.2.1",
     "babel-loader": "^8.2.2",
     "browser-sync": "^2.26.13",

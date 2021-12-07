@@ -1,8 +1,9 @@
-import { __ } from '@wordpress/i18n';
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import '../scss/editor.scss';
+const { __ } = window.wp.i18n;
+const { RichText, useBlockProps } = window.wp.blockEditor;
 
 export const Edit = ({ attributes, setAttributes }) => {
-	const blockProps = useBlockProps({ className: 'hello-world' });
+	const blockProps = useBlockProps({ className: 'hello-world-editor' });
 	return (
 		<div {...blockProps}>
 			<RichText
@@ -14,7 +15,7 @@ export const Edit = ({ attributes, setAttributes }) => {
 			/>
 			<RichText
 				tagName="h2"
-				placeholder={__('Write subtitle…')}
+				aplaceholder={__('Write subtitle…')}
 				value={attributes.subtitle}
 				onChange={(subtitle) => setAttributes({ subtitle })}
 				keepPlaceholderOnFocus={true}
