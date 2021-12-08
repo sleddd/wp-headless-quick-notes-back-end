@@ -33,7 +33,19 @@ class WpStarterPlugin {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_backend_styles' ) );
 
 		// Add browsersync
-		// add_action( 'wp_footer', array( $this, 'add_browser_sync' ));
+		add_action( 'wp_footer', array( $this, 'add_browser_sync' ));
+
+		// Add settings pages 
+		$this->register_settings_pages();
+
+		// Hide the ACF admin menu item.
+		add_filter('acf/settings/show_admin', function( $show_admin ) { return false; });
+	}
+
+	public function register_settings_pages() {
+		new \WpStarterPlugin\Settings\ExampleSettingsPage();
+		new \WpStarterPlugin\Settings\ExampleSettingsSubPage();
+		//new \WpStarterPlugin\Settings\ExampleACFSettingsPage();
 	}
 
 	public function register_cpts() {

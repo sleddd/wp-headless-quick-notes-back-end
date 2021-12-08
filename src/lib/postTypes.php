@@ -1,5 +1,4 @@
 <?php namespace WpStarterPlugin\PostTypes;
-
 // Takes in post type name, args, and labels returning formatted args for
 // registering a post type.
 function get_post_type_args( $name = false, $args = array(), $labels = array() ) {

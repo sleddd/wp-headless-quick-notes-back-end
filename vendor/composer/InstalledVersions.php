@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '4485b4248cc15cc59f1cd8037e54c3c978b08ce1',
+    'reference' => '9e167ba40b9988c13d6bfd33449511990d5fb3c1',
     'name' => 'wpstarterplugin/wpstarterplugin',
   ),
   'versions' => 
@@ -87,7 +87,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '4485b4248cc15cc59f1cd8037e54c3c978b08ce1',
+      'reference' => '9e167ba40b9988c13d6bfd33449511990d5fb3c1',
     ),
   ),
 );

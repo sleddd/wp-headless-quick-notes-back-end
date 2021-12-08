@@ -1,19 +1,56 @@
 {
-    "name": "wpstarterplugin/wpstarterplugin",
-    "description": "WordPress plugin starter code",
-	"authors": [
+        "name": "wpstarterplugin/wpstarterplugin",
+        "description": "WordPress plugin starter code",
+        "authors": [
+                {
+                        "name": "Claudette Raynor"
+                }
+        ],
+        "repositories": [
 		{
-			"name": "Claudette Raynor"
-		}
-	],
-	"require-dev": {
-		"automattic/vipwpcs": "^2.3",
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
-	},
-	"autoload": {
-		"psr-4": {
-			"WpStarterPlugin\\": [ "src/classes/", "src/classes/PostTypes/"]
+			"type": "composer",
+			"url": "https://wpackagist.org"
 		},
-		"files": [ "src/lib/postTypes.php" ]
-	}
+		{
+			"type": "package",
+			"package": {
+			  "name": "advanced-custom-fields/advanced-custom-fields-pro",
+			  "version": "5.11.4",
+			  "type": "wordpress-plugin",
+			  "dist": {
+			    "type": "zip",
+			    "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%PLUGIN_ACF_KEY}&t={%VERSION}"
+			  },
+			  "require": {
+			    "ffraenz/private-composer-installer": "^5.0"
+			  }
+			}
+		      }
+        ],
+        "extra": {
+                "installer-paths": {
+                        "vendor/{$name}/": [
+                                "type:wordpress-plugin"
+                        ]
+                }
+        },
+        "require": {
+		"advanced-custom-fields/advanced-custom-fields-pro": "*"
+        },
+        "require-dev": {
+                "automattic/vipwpcs": "^2.3",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
+        },
+        "autoload": {
+                "psr-4": {
+                        "WpStarterPlugin\\": [
+                                "src/classes/",
+                                "src/classes/PostTypes/",
+                                "src/classes/Settings/"
+                        ]
+                },
+                "files": [
+                        "src/lib/postTypes.php"
+                ]
+        }
 }

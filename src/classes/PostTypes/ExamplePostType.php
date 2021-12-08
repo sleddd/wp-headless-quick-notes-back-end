@@ -5,12 +5,12 @@
  */
 class ExamplePostType {
 
-	const POST_TYPE_NAME	= 'Example';
-	const POST_TYPE_TAX	= ['Genre'];
+	const POST_TYPE_NAME = 'Example';
+	const POST_TYPE_TAX  = array( 'Genre' );
 
 	public function __construct() {
 		register_post_type( self::POST_TYPE_NAME );
-		foreach( self::POST_TYPE_TAX as $genre ) {
+		foreach ( self::POST_TYPE_TAX as $genre ) {
 			add_taxonomy( $genre, self::POST_TYPE_NAME );
 		}
 		$this->add_post_type_custom_fields();

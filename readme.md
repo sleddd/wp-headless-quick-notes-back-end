@@ -34,9 +34,9 @@ From the plugin directory command line run:
 
 NPM Scripts include: 
 - npm run prod
-- npm run prod-watch 
+- npm run prod:watch 
 - npm run dev
-- npm run dev-watch
+- npm run dev:watch
 
 This starter code uses Webpack 5 versus gulp. It uses autoloading and WordPress coding standards via composer and will integrate nicely with the VS [PHP CodeSniffer and Beautifier](https://marketplace.visualstudio.com/items?itemName=ValeryanM.vscode-phpsab) if you point it to the composer.json.
 
@@ -49,7 +49,27 @@ Examples:
 
 Post types do support basic custom meta boxes and fields for text, textarea, checkboxes, radio, and select.
 
-For additional support consider a 3rd party plugin like ACF or Metabox.io.
+For additional support you can extend to use ACF fields or try Metabox.io's plugin. 
+This plugin does support ACF through composer. To use ACF, you will need to update the composer.json to include the following lines: 
+
+file: {
+	"vendor/advanced-custom-fields/advanced-custom-fields-pro/acf.php",
+	"vendor/advanced-custom-fields/advanced-custom-fields-pro/pro/acf-pro.php"
+}
+
+"require": {
+	"advanced-custom-fields/advanced-custom-fields-pro": "*"
+}
+
+You will also need to add a .env file and fields for: 
+PLUGIN_ACF_KEY=YOURKEY
+VERSION=5.11.4
+
+To add custom settings or options pages: 
+I would encourage you to use ACF unless you need to build a custom dashboard. There are options for both: 
+/src/classes/Settings/ExampleACFSettingsPage.php
+/src/classes/Settings/ExampleSettingsPage.php
+/src/classes/Settings/ExampleSettingsSubPage.php
 
 To add a block: 
 - Go to src/blocks and add a folder with the block name. 
@@ -65,5 +85,4 @@ To rename this plugin with your plugin name, you will want to find and replace t
 
 Be sure to run composer dump-autoload -o to rebuild the autoload files when done.
 
-!! This plugin is use at your own risk and you can do what you want with it. While this plugin is not currently being maintained except when I get time, I do plan to add additional support for REST API, customizer, settings, tables, and easy ACF integration. Although, I do not know when that will be.
-
+!! This plugin is use at your own risk and you can do what you want with it. While this plugin is not currently being maintained except when I get time, I do plan to add additional support for REST API, customizer, tables, and easier ACF integration. Although, I do not know when that will be.
