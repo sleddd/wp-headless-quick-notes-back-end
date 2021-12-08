@@ -13,23 +13,19 @@ WordPress plugin starter code for easier development.
 ![PostCSS 8.2.4](https://img.shields.io/badge/PostCSS-8.2.4-brightgreen)
 ![PurgeCSS 3.1.3](https://img.shields.io/badge/PurgeCSS-3.1.3-brightgreen)
 
-This plugin uses webpack code from [wp-strap/wordpress-webpack-workflow](https://github.com/wp-strap/wordpress-webpack-workflow) which has been modified to support the development of JavaScript registered Gutenberg blocks. 
+This plugin uses webpack code from [wp-strap/wordpress-webpack-workflow](https://github.com/wp-strap/wordpress-webpack-workflow) which has been modified to support the development of JavaScript registered Gutenberg blocks. Visit [wp-strap/wordpress-webpack-workflow](https://github.com/wp-strap/wordpress-webpack-workflow) for more details.
 
-For more details on the options for wp-strap/wordpress-webpack-workflow visit:
-https://github.com/wp-strap/wordpress-webpack-workflow
-
-
+\
 == Basic Installation ==
-
 1. Download the plugin zip file and upload to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
-Before beginning development be sure to install composer and node:
-From the plugin directory command line run: 
-- composer install or composer i
-- npm run build
+With Composer and Node installed, from the plugin directory, at command line run: 
+- composer install
+- npm install
+- npm run dev:watch or npm run dev 
 
-
+\
 == Developer Notes == 
 
 NPM Scripts include: 
@@ -38,12 +34,10 @@ NPM Scripts include:
 - npm run dev
 - npm run dev:watch
 
-This starter code uses Webpack 5 versus gulp. It uses autoloading and WordPress coding standards via composer and will integrate nicely with the VS [PHP CodeSniffer and Beautifier](https://marketplace.visualstudio.com/items?itemName=ValeryanM.vscode-phpsab) if you point it to the composer.json.
+To add a custom post type see the example post type in src/classes/PostTypes/ExamplePostType.php
 
-To add a custom post type see the example post type in src/classes/PostTypes/ExamplePostType.php. 
-
-You can also build custom posts types and taxonomies via the library functions found in src/lib/postTypes.php
-Examples:
+There are also support functions for managing custom post types in src/lib/postTypes.php
+Examples of use outside of a post type class:\
 \WpStarterPlugin\PostTypes\register_post_type('example');\
 \WpStarterPlugin\PostTypes\add_taxonomy('example tax', 'example');
 
@@ -76,7 +70,7 @@ To add a block:
 - Add your block.json and block.js file to the block folder.
 - Import the block.js file into src/blocks/blocks.js
 
-See hello world block as an example. You can also register a block in PHP in the main plugin file WpStarterPlugin.php.
+Gutenberg blocks can be registered in JavaScript. See hello-world block as an example (src/blocks/hello-world)
 
 To rename this plugin with your plugin name, you will want to find and replace the following: 
 - WP_STARTER_PLUGIN
