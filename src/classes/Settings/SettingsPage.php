@@ -98,7 +98,7 @@ class SettingsPage {
 							case 'text':
 								$value = sanitize_text_field( $value );
 								break;
-							case 'text':
+							case 'textarea':
 								$value = sanitize_textarea_field( $value );
 								break;
 						}
@@ -114,14 +114,14 @@ class SettingsPage {
 		$option = get_option( $field['id'] );
 		switch ( $field['type'] ) {
 			case 'text':
-				echo '<div><input type="text" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . $option . '" />';
+				echo '<div><input type="text" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . esc_attr( $option ) . '" />';
 				if ( array_key_exists( 'description', $field ) ) {
 					echo '<span class="description">' . $field['desc'] . '</span>';
 				}
 				echo '</div>';
 				break;
 			case 'textarea':
-				echo '<div><textarea name="' . $field['id'] . '" id="' . $field['id'] . '">' . $option . '</textarea>';
+				echo '<div><textarea name="' . $field['id'] . '" id="' . $field['id'] . '">' . esc_attr( $option ) . '</textarea>';
 				if ( array_key_exists( 'description', $field ) ) {
 					echo '<span class="description">' . $field['description'] . '</span>';
 				}

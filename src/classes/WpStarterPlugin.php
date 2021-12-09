@@ -54,11 +54,11 @@ class WpStarterPlugin {
 
 	public function register_blocks() {
 		wp_enqueue_style(
-			'wpstarterplugin-blockcss', // Handle.
+			'wpstarterplugin-blockcss',
 			WP_STARTER_PLUGIN_URL . 'dist/css/blocks.css'
 		);
 		wp_enqueue_script(
-			'wpstarterplugin-blockjs', // Handle.
+			'wpstarterplugin-blockjs',
 			WP_STARTER_PLUGIN_URL . 'dist/js/blocks.js',
 			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components' ),
 			null,
@@ -134,8 +134,8 @@ class WpStarterPlugin {
 	}
 
 	public function add_browser_sync() {
-		echo '<script id="__bs_script__">//<![CDATA[
-			document.write("<script async src=' . 'http://HOST:62584/browser-sync/browser-sync-client.js?v=2.27.7' . '><\/script>".replace("HOST", location.hostname));
+		//echo '<script id="__bs_script__">//<![CDATA[
+			//document.write("<script async src=' . 'http://HOST:62584/browser-sync/browser-sync-client.js?v=2.27.7' . '><\/script>".replace("HOST", location.hostname));
 		    //]]></script>';
 	}
 }

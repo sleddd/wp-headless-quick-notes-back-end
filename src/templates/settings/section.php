@@ -8,10 +8,10 @@ $active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : '';?>
 <div class="wp_starter_plugin_settings__section">
 	<?php
 	if ( ! empty( $section['title'] ) ) {
-		echo '<h2>' . wp_kses_post( $section['title'] ) . '</h2>';
+		echo '<h2>' . $section['title'] . '</h2>';
 	} 
 	if ( ! empty( $section['description'] ) ) {
-		echo '<p>' . wp_kses_post( $section['description'] ) . '</p>';
+		echo '<p>' . $section['description'] . '</p>';
 	} ?>
 	<?php 
 	if ( $active_tab ) {
