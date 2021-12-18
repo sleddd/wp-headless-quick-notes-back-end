@@ -1,8 +1,15 @@
 <?php namespace WpStarterPlugin\PostTypes;
-// Takes in post type name, args, and labels returning formatted args for
-// registering a post type.
-function get_post_type_args( $name = false, $args = array(), $labels = array() ) {
-	if ( ! $name ) {
+
+/**
+ * Get formatted set of arguments for a post type name.
+ *
+ * @param   string $name   Name of post type.
+ * @param   array  $args   Optional. Custom post type arguments.
+ * @param   array  $labels Optional. Custom post type labels.
+ * @return  array  Formatted post type arguments merged with defaults.
+ */
+function get_post_type_args( $name = '', $args = array(), $labels = array() ) {
+	if ( empty( $name ) ) {
 		return;
 	}
 	$name   = ucwords( str_replace( '_', ' ', $name ) );
@@ -44,9 +51,19 @@ function get_post_type_args( $name = false, $args = array(), $labels = array() )
 
 }
 
-// Takes in taxonomy name, args, and labels returning formatted args for
-// registering a custom taxonomy.
-function get_taxonomy_args( $name, $args = array(), $labels = array() ) {
+
+/**
+ * Get formatted set of arguments for a taxonomy.
+ *
+ * @param   string $name   Name of taxonomy.
+ * @param   array  $args   Optional. Custom taxonomy arguments.
+ * @param   array  $labels Optional. Custom taxonomy labels.
+ * @return  array  Formatted taxonomy arguments merged with defaults.
+ */
+function get_taxonomy_args( $name = '', $args = array(), $labels = array() ) {
+	if ( empty( $name ) ) {
+		return;
+	}
 	$name   = ucwords( str_replace( '_', ' ', $name ) );
 	$plural = $name . 's';
 
@@ -83,10 +100,17 @@ function get_taxonomy_args( $name, $args = array(), $labels = array() ) {
 
 }
 
-// Takes in custom post type name, args, and labels and registers a post type.
-function register_post_type( $post_type_name = false, $args = array(), $labels = array() ) {
-	if ( ! $post_type_name ) {
-		// Must have a post type name.
+
+/**
+ * Registers a post type.
+ *
+ * @param   string $name   Name of post type.
+ * @param   array  $args   Optional. Custom post type arguments.
+ * @param   array  $labels Optional. Custom post type labels.
+ * @return  void
+ */
+function register_post_type( $post_type_name = '', $args = array(), $labels = array() ) {
+	if ( empty( $post_type_name ) ) {
 		return;
 	}
 	$args = get_post_type_args( $post_type_name, $args, $labels );
@@ -99,11 +123,19 @@ function register_post_type( $post_type_name = false, $args = array(), $labels =
 	);
 }
 
-// Takes in custom taxonomy type name, args, labels, and post type name, then registers the taxonomy.
-function add_taxonomy( $taxonomy_name = false, $post_type_name = false, $args = array(), $labels = array() ) {
 
-	if ( ! $post_type_name || ! $taxonomy_name ) {
-		// Must have a post type and taxonomy name.
+/**
+ * Adds a taxonomy to a post type.
+ *
+ * @param   string $taxonomy_name    Name of taxonomy.
+ * @param   string $post_type_name   Name of post type.
+ * @param   array  $args   Optional. Custom taxonomy arguments.
+ * @param   array  $labels Optional. Custom taxonomy labels.
+ * @return  void
+ */
+function add_taxonomy( $taxonomy_name = '', $post_type_name = '', $args = array(), $labels = array() ) {
+
+	if ( empty( $post_type_name ) || empty( $taxonomy_name ) ) {
 		return;
 	}
 
@@ -130,8 +162,22 @@ function add_taxonomy( $taxonomy_name = false, $post_type_name = false, $args = 
 	}
 }
 
-// Takes in metabox title, fields, context, priority, post type name and adds fields to post type.
-function add_meta_box( $title, $fields = array(), $context = 'normal', $priority = 'default', $post_type_name ) {
+
+/**
+ * Adds a meta box to a post type.
+ *
+ * @param   string $title     Title for meta box.
+ * @param   array  $fields    Optional. Metabox fields properties.
+ * @param   string $context   Optional. Where the metabox is displayed ( normal, side, advanced ).
+ * @param   string $priority  Optional. Where in the context the metabox shows (high, core, default, low).
+ * @param   string $post_type_name  Name of post type.
+ * @return  void
+ */
+function add_meta_box( $title = '', $fields = array(), $context = 'normal', $priority = 'default', $post_type_name = '' ) {
+
+	if ( empty( $title ) || empty( $post_type_name ) ) {
+		return;
+	}
 
 	if ( ! empty( $title ) ) {
 

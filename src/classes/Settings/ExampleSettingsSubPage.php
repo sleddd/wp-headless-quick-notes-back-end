@@ -1,11 +1,11 @@
 <?php namespace WpStarterPlugin\Settings;
 
-/* Custom Settings Page Example
- * This is a custom settings page not using ACF.
- * Allows you to build from scratch, customize, and extend as needed.
- * */
-
+/**
+ * Example for settings sub menu page.
+ */
 class ExampleSettingsSubPage extends SettingsPage {
+
+	public static $instance = null;
 	
 	public static $SETTINGS_PAGE = array(
 		'parent_slug'   => 'theme_options',
@@ -80,9 +80,20 @@ class ExampleSettingsSubPage extends SettingsPage {
 		),
 	);
 
-	public function __construct() {
-		$this->add_page( self::$SETTINGS_PAGE );
-		add_action( 'admin_init', array( $this, 'add_sections' ) );
-		add_action( 'admin_init', array( $this, 'add_fields' ) );
+	private function __construct() {}
+
+	public static function get_instance() {
+		if ( self::$instance === null ) {
+			self::$instance = new ExampleSettingsSubPage;
+		}
+		return self::$instance;
 	}
+
+	public function init() {
+		$example_settings_sub_page = self::get_instance();
+		$example_settings_sub_page->add_page( self::$SETTINGS_PAGE );
+		add_action( 'admin_init', array( $example_settings_sub_page, 'add_sections' ) );
+		add_action( 'admin_init', array( $example_settings_sub_page, 'add_fields' ) );
+	}
+
 }

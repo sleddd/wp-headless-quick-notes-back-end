@@ -1,22 +1,38 @@
 <?php namespace WpStarterPlugin\PostTypes;
 
 /**
- * Handles the construction of Example custom post type
+ * Example custom post type.
+ * 
+ * Provides example of how to add a custom post type.
+ * Uses /src/lib/postTypes.php functions.
  */
 class ExamplePostType {
 
-	const POST_TYPE_NAME = 'Example';
-	const POST_TYPE_TAX  = array( 'Genre' );
+	public static $instance = null;
 
-	public function __construct() {
-		register_post_type( self::POST_TYPE_NAME );
-		foreach ( self::POST_TYPE_TAX as $genre ) {
-			add_taxonomy( $genre, self::POST_TYPE_NAME );
+	/** 
+	 * Declares post type and taxonomy names.
+	 */ 
+	const POST_TYPE_NAME = 'Example';
+	const POST_TYPE_TAX  = array( 'Genre', 'Topic' );
+
+	private function __construct() {}
+
+	/**
+	 * Registers custom post type.
+	 */
+	public static function init() {
+		register_post_type( ExamplePostType::POST_TYPE_NAME );
+		foreach ( ExamplePostType::POST_TYPE_TAX as $genre ) {
+			add_taxonomy( $genre, ExamplePostType::POST_TYPE_NAME );
 		}
-		$this->add_post_type_custom_fields();
+		ExamplePostType::add_post_type_custom_fields();
 	}
 
-	public function add_post_type_custom_fields() {
+	/**
+	 * Adds custom metabox for post type.
+	 */
+	public static function add_post_type_custom_fields() {
 		add_meta_box(
 			'Example - Book Information',
 			array(
@@ -51,7 +67,7 @@ class ExamplePostType {
 			),
 			'normal',
 			'default',
-			self::POST_TYPE_NAME
+			ExamplePostType::POST_TYPE_NAME
 		);
 	}
 }

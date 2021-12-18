@@ -37,20 +37,10 @@ NPM Scripts include:
 ---
 ### Additional Notes
 
-To add a custom post type see the example in src/classes/PostTypes/ExamplePostType.php
-
-Additional support functions for managing custom post types can be found in src/lib/postTypes.php\
-Examples of use outside of a post type class:
-
-```
-\WpStarterPlugin\PostTypes\register_post_type('example');
-\WpStarterPlugin\PostTypes\add_taxonomy('example tax', 'example');
-```
-
+To add a custom post type, see the example in src/classes/PostTypes/ExamplePostType.php
 Post types do support basic custom meta boxes and fields for text, textarea, checkboxes, radio, and select.
 
-For additional support you can extend to use ACF fields or try Metabox.io. 
-This plugin does support ACF through composer. To use ACF, you will need to update the composer.json to include the following lines: 
+For additional support you can extend to use ACF fields or try Metabox.io. This plugin does support ACF through composer. To use ACF, you will need to update the composer.json to include the following lines: 
 
 ```
 file: {
@@ -70,18 +60,12 @@ PLUGIN_ACF_KEY=YOURKEY
 VERSION=5.11.4
 ```
 
-To add custom settings or options pages:\
-*I would encourage you to use ACF unless you need to build a custom dashboard. There are options for both.*
+To add custom settings or options pages see examples:\
 ```
 /src/classes/Settings/ExampleACFSettingsPage.php
 /src/classes/Settings/ExampleSettingsPage.php
 /src/classes/Settings/ExampleSettingsSubPage.php
 ```
-
-To add a block: 
-- Go to src/blocks and add a folder with the block name. 
-- Add your block.json and block.js file to the block folder.
-- Import the block.js file into src/blocks/blocks.js
 
 Gutenberg blocks can be registered in JavaScript. See hello-world block as an example (src/blocks/hello-world)
 
@@ -90,6 +74,6 @@ To rename this plugin with your plugin name, you will want to find and replace t
 - WpStarterPlugin
 - wpstarterplugin
 
-Be sure to run composer dump-autoload -o to rebuild the autoload files when done.
+Run composer dump-autoload -o to rebuild the autoload files when done.
 
-!! This plugin is use at your own risk and you can do what you want with it. While this plugin is not currently being maintained except when I get time, I do plan to add additional support for REST API, customizer, tables, and easier ACF integration. Although, I do not know when that will be.
+!! This plugin is not currently maintained except when I get time, I do plan to add additional support for REST API, customizer, tables, and additional ACF integration. Although, I do not know when that will be.

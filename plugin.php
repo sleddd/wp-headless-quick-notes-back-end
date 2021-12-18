@@ -17,4 +17,6 @@ define( 'WP_STARTER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 /* Autoloader */
 require WP_STARTER_PLUGIN_PATH . 'vendor/autoload.php';
-$wp_starter_plugin = new \WpStarterPlugin\WpStarterPlugin();
+
+/* Initializing plugin */
+$wp_starter_plugin = \WpStarterPlugin\WpStarterPlugin::init();

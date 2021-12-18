@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '9e167ba40b9988c13d6bfd33449511990d5fb3c1',
+    'reference' => '9192bf8c2c672280516d6501d695bdd499ed37ed',
     'name' => 'wpstarterplugin/wpstarterplugin',
   ),
   'versions' => 
@@ -40,12 +40,12 @@
     ),
     'squizlabs/php_codesniffer' => 
     array (
-      'pretty_version' => '3.6.1',
-      'version' => '3.6.1.0',
+      'pretty_version' => '3.6.2',
+      'version' => '3.6.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f268ca40d54617c6e06757f83f699775c9b3ff2e',
+      'reference' => '5e4e71592f69da17871dba6e80dd51bce74a351a',
     ),
     'wp-coding-standards/wpcs' => 
     array (
@@ -63,7 +63,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '9e167ba40b9988c13d6bfd33449511990d5fb3c1',
+      'reference' => '9192bf8c2c672280516d6501d695bdd499ed37ed',
     ),
   ),
 );
