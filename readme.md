@@ -37,10 +37,9 @@ NPM Scripts include:
 ---
 ### Additional Notes
 
-To add a custom post type, see the example in src/classes/PostTypes/ExamplePostType.php
-Post types do support basic custom meta boxes and fields for text, textarea, checkboxes, radio, and select.
+To see how to add a custom post type, review the example: src/classes/PostTypes/ExamplePostType.php
 
-For additional support you can extend to use ACF fields or try Metabox.io. This plugin does support ACF through composer. To use ACF, you will need to update the composer.json to include the following lines: 
+This plugin does support ACF through composer. To use ACF, you will need to update the composer.json to include the following lines: 
 
 ```
 file: {
@@ -53,21 +52,20 @@ file: {
 }
 ```
 
-
 You will also need to add a .env file and fields for: 
 ```
 PLUGIN_ACF_KEY=YOURKEY
 VERSION=5.11.4
 ```
 
-To add custom settings or options pages see examples:\
+To add custom settings or options pages see examples:
 ```
 /src/classes/Settings/ExampleACFSettingsPage.php
 /src/classes/Settings/ExampleSettingsPage.php
 /src/classes/Settings/ExampleSettingsSubPage.php
 ```
 
-Gutenberg blocks can be registered in JavaScript. See hello-world block as an example (src/blocks/hello-world)
+Gutenberg blocks can be registered in JavaScript. See hello-world block as an example: src/blocks/hello-world
 
 To rename this plugin with your plugin name, you will want to find and replace the following: 
 - WP_STARTER_PLUGIN
@@ -76,4 +74,4 @@ To rename this plugin with your plugin name, you will want to find and replace t
 
 Run composer dump-autoload -o to rebuild the autoload files when done.
 
-!! This plugin is not currently maintained except when I get time, I do plan to add additional support for REST API, customizer, tables, and additional ACF integration. Although, I do not know when that will be.
+!! This plugin is not currently maintained except when I get time. I do plan to add additional support for REST API, customizer, tables, and additional ACF integration, but do not know when that will be.
