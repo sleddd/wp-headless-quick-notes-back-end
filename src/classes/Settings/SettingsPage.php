@@ -72,7 +72,7 @@ class SettingsPage {
 	public function add_page() {
 		add_action(
 			'admin_menu',
-			function() use ( $page_title ) {
+			function() {
 				if ( array_key_exists( 'parent_slug', static::$SETTINGS_PAGE ) ) {
 					add_submenu_page(
 						static::$SETTINGS_PAGE['parent_slug'],
@@ -203,7 +203,7 @@ class SettingsPage {
 			case 'text':
 				echo '<div><input type="text" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . esc_attr( $option ) . '" />';
 				if ( array_key_exists( 'description', $field ) ) {
-					echo '<span class="description">' . $field['desc'] . '</span>';
+					echo '<span class="description">' . $field['description'] . '</span>';
 				}
 				echo '</div>';
 				break;
@@ -219,8 +219,8 @@ class SettingsPage {
 					echo '<div class="fieldset">';
 					$options_count = 1;
 					foreach ( $field['options'] as $field_option ) {
-						$checked = $option[ $options_count ] === $field_option['value'] ? 'checked="checked"' : '';
-						echo '<label for="' . $field_option['id'] . '">' . $field_option['label'] . '</label><input type="checkbox" name="' . $field['id'] . '[' . $options_count . ']" id="' . $field['id'] . '[' . $options_count . ']" value="' . $field_option['value'] . '"' . $checked . '/>';
+						$checked = is_array( $option ) && $option[ $options_count ] === $field_option['value'] ? 'checked="checked"' : '';
+						echo '<label for="' . $field['id'] . '">' . $field_option['label'] . '</label><input type="checkbox" name="' . $field['id'] . '[' . $options_count . ']" id="' . $field['id'] . '[' . $options_count . ']" value="' . $field_option['value'] . '"' . $checked . '/>';
 						$options_count++;
 					}
 					echo '<input type="hidden" name="' . $field['id'] . '[hidden]" value="0"/>';

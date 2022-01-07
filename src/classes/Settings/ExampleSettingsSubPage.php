@@ -89,7 +89,7 @@ class ExampleSettingsSubPage extends SettingsPage {
 		return self::$instance;
 	}
 
-	public function init() {
+	public static function init() {
 		$example_settings_sub_page = self::get_instance();
 		$example_settings_sub_page->add_page( self::$SETTINGS_PAGE );
 		add_action( 'admin_init', array( $example_settings_sub_page, 'add_sections' ) );

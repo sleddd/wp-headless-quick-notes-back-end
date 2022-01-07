@@ -122,21 +122,21 @@ class WpStarterPlugin {
 	/**
 	 * Registration for frontend plugin styles.
 	 */
-	public function enqueue_frontend_styles() {
+	public static function enqueue_frontend_styles() {
 		wp_enqueue_style( 'wpstarterplugin-styles', WP_STARTER_PLUGIN_URL . 'dist/css/frontend.css', rand(), false, 'all' );
 	}
 
 	/**
 	 * Registration for backend styles.
 	 */
-	public function enqueue_backend_styles() {
+	public static function enqueue_backend_styles() {
 		wp_enqueue_style( 'wpstarterplugin-styles', WP_STARTER_PLUGIN_URL . 'dist/css/backend.css', rand(), false, 'all' );
 	}
 
 	/**
 	 * Registration for frontend scripts and script localization.
 	 */
-	public function enqueue_frontend_scripts() {
+	public static function enqueue_frontend_scripts() {
 		wp_enqueue_script( 'wpstarterplugin-scripts', WP_STARTER_PLUGIN_URL . 'dist/js/frontend.js', 'jquery', rand(), true );
 		$nonce = wp_create_nonce( 'ajax_nonce' );
 		wp_localize_script(
@@ -152,7 +152,7 @@ class WpStarterPlugin {
 	/**
 	 * Registration for backend scripts.
 	 */
-	public function enqueue_backend_scripts() {
+	public static function enqueue_backend_scripts() {
 		wp_enqueue_script( 'wpstarterplugin-scripts', WP_STARTER_PLUGIN_URL . 'dist/js/backend.js', 'jquery', rand(), true );
 		$nonce = wp_create_nonce( 'ajax_nonce' );
 		wp_localize_script(
@@ -168,7 +168,7 @@ class WpStarterPlugin {
 	/**
 	 * Echoes browsersync custom script tag.
 	 */
-	public function add_browser_sync() {
+	public static function add_browser_sync() {
 		// echo '<script id="__bs_script__">//<![CDATA[
 			// document.write("<script async src=' . 'http://HOST:62584/browser-sync/browser-sync-client.js?v=2.27.7' . '><\/script>".replace("HOST", location.hostname));
 			// ]]></script>';

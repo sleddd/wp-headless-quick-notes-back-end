@@ -49,5 +49,10 @@
                 "files": [
                         "src/lib/postTypes.php"
                 ]
+        },
+        "config": {
+                "allow-plugins": {
+                        "dealerdirect/phpcodesniffer-composer-installer": true
+                }
         }
 }
