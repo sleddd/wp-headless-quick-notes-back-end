@@ -11,7 +11,7 @@ class ExampleSettingsSubPage extends SettingsPage {
 		'parent_slug'   => 'theme_options',
 		'menu_title' 	=> 'Sub Page',
 		'page_title' 	=> 'Page Title',
-		'slug'  	=> 'suboptions',
+		'slug'  		=> 'suboptions',
 		'capability' 	=> 'administrator',
 		'template'   	=> 'wrapper',
 	);

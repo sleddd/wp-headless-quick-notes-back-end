@@ -34,6 +34,9 @@
                         ]
                 }
         },
+        "require": {
+	        "advanced-custom-fields/advanced-custom-fields-pro": "*"
+        },
         "require-dev": {
                 "automattic/vipwpcs": "^2.3",
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
@@ -47,12 +50,15 @@
                         ]
                 },
                 "files": [
-                        "src/lib/postTypes.php"
+                        "src/lib/postTypes.php",
+                        "vendor/advanced-custom-fields/advanced-custom-fields-pro/acf.php",
+                        "vendor/advanced-custom-fields/advanced-custom-fields-pro/pro/acf-pro.php"
                 ]
         },
         "config": {
                 "allow-plugins": {
-                        "dealerdirect/phpcodesniffer-composer-installer": true
+                        "dealerdirect/phpcodesniffer-composer-installer": true,
+                        "ffraenz/private-composer-installer": true
                 }
         }
 }

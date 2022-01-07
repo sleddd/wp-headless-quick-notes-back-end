@@ -41,6 +41,9 @@ class WpStarterPlugin {
 		// Register custom post types.
 		$plugin::register_cpts();
 
+		// Register custom post types.
+		$plugin::register_custom_fields();
+
 		// Register custom blocks.
 		add_action( 'init', array( __NAMESPACE__ . '\\WpStarterPlugin', 'register_blocks' ) );
 
@@ -81,8 +84,8 @@ class WpStarterPlugin {
 	 * Registration for custom settings pages.
 	 */
 	public static function register_settings_pages() {
-		\WpStarterPlugin\Settings\ExampleSettingsPage::init();
-		\WpStarterPlugin\Settings\ExampleSettingsSubPage::init();
+		//\WpStarterPlugin\Settings\ExampleSettingsPage::init();
+		//\WpStarterPlugin\Settings\ExampleSettingsSubPage::init();
 		//\WpStarterPlugin\Settings\ExampleACFSettingsPage::init();
 	}
 
@@ -90,8 +93,17 @@ class WpStarterPlugin {
 	 * Registration for custom post types.
 	 */
 	public static function register_cpts() {
-		PostTypes\ExamplePostType::init();
+		PostTypes\Journal::init();
 	}
+
+	/**
+	 * Registration for custom fields.
+	 */
+	public static function register_custom_fields() {
+		ACF\JournalFields::init();
+		ACF\JournalTopicFields::init();
+	}
+
 
 	/**
 	 * Registration for block scripts and styles.
