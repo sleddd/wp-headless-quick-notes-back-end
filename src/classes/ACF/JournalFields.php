@@ -15,6 +15,7 @@ class JournalFields {
                     'label' => __('Entry Title', 'wpstarterplugin'),
                     'name'  => 'journal_entry_field_title',
                     'type'  => 'text',
+                    'show_in_graphql' => 1,
                 ),
                 array(
                     'key'   => 'field_journal_entry_image',
@@ -23,7 +24,8 @@ class JournalFields {
                     'type'  => 'image',
                     'return_format' => 'Return Format',
                     'preview_size' => 'thumbnail',
-                    'allowed_file_types' => array('jpg','png','gif')
+                    'allowed_file_types' => array('jpg','png','gif'),
+                    'show_in_graphql' => 1,
                 ),
             ),
             'location' => array(
@@ -34,6 +36,12 @@ class JournalFields {
                         'value' => \WpStarterPlugin\PostTypes\Journal::POST_TYPE_NAME,
                     ),
                 ),
+            ),
+            'show_in_graphql' => 1,
+            'graphql_field_name' => 'customFields',
+            'map_graphql_types_from_location_rules' => 1,
+            'graphql_types' => array(
+                0 => 'Journal',
             ),
         ));
     }}
