@@ -42,10 +42,10 @@ To see how to add a custom post type, review the example: src/classes/PostTypes/
 This plugin does support ACF through composer. To use ACF, you will need to update the composer.json to include the following lines: 
 
 ```
-file: {
+files: [
 	"vendor/advanced-custom-fields/advanced-custom-fields-pro/acf.php",
 	"vendor/advanced-custom-fields/advanced-custom-fields-pro/pro/acf-pro.php"
-}
+]
 
 "require": {
 	"advanced-custom-fields/advanced-custom-fields-pro": "*"
