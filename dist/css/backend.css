@@ -1,43 +1,43 @@
-.wp_starter_plugin_custom_meta label,
-.wp_starter_plugin_settings label {
+.QUICK_NOTES_custom_meta label,
+.QUICK_NOTES_settings label {
   display: block;
   width: 100%;
   margin-top: 1.1rem;
 }
-.wp_starter_plugin_custom_meta input,
-.wp_starter_plugin_custom_meta textarea,
-.wp_starter_plugin_custom_meta select,
-.wp_starter_plugin_settings input,
-.wp_starter_plugin_settings textarea,
-.wp_starter_plugin_settings select {
+.QUICK_NOTES_custom_meta input,
+.QUICK_NOTES_custom_meta textarea,
+.QUICK_NOTES_custom_meta select,
+.QUICK_NOTES_settings input,
+.QUICK_NOTES_settings textarea,
+.QUICK_NOTES_settings select {
   margin: 0.5rem auto 0 auto;
 }
-.wp_starter_plugin_custom_meta input[type=text],
-.wp_starter_plugin_custom_meta textarea,
-.wp_starter_plugin_custom_meta select,
-.wp_starter_plugin_settings input[type=text],
-.wp_starter_plugin_settings textarea,
-.wp_starter_plugin_settings select {
+.QUICK_NOTES_custom_meta input[type=text],
+.QUICK_NOTES_custom_meta textarea,
+.QUICK_NOTES_custom_meta select,
+.QUICK_NOTES_settings input[type=text],
+.QUICK_NOTES_settings textarea,
+.QUICK_NOTES_settings select {
   width: 100%;
 }
-.wp_starter_plugin_custom_meta input[type=radio],
-.wp_starter_plugin_custom_meta input[type=checkbox],
-.wp_starter_plugin_settings input[type=radio],
-.wp_starter_plugin_settings input[type=checkbox] {
+.QUICK_NOTES_custom_meta input[type=radio],
+.QUICK_NOTES_custom_meta input[type=checkbox],
+.QUICK_NOTES_settings input[type=radio],
+.QUICK_NOTES_settings input[type=checkbox] {
   margin: -2px 0.5rem 0 0.3rem;
 }
-.wp_starter_plugin_custom_meta .fieldset,
-.wp_starter_plugin_settings .fieldset {
+.QUICK_NOTES_custom_meta .fieldset,
+.QUICK_NOTES_settings .fieldset {
   width: 100%;
 }
-.wp_starter_plugin_custom_meta .fieldset label,
-.wp_starter_plugin_settings .fieldset label {
+.QUICK_NOTES_custom_meta .fieldset label,
+.QUICK_NOTES_settings .fieldset label {
   display: inline;
   width: auto;
   margin-top: 0;
 }
-.wp_starter_plugin_custom_meta .description,
-.wp_starter_plugin_settings .description {
+.QUICK_NOTES_custom_meta .description,
+.QUICK_NOTES_settings .description {
   width: 100%;
   display: block;
   font-style: italic;
@@ -46,7 +46,7 @@
   color: #888;
 }
 
-.wp_starter_plugin_settings__section {
+.QUICK_NOTES_settings__section {
   background: #fff;
   width: 100%;
   max-width: 640px;
@@ -54,11 +54,11 @@
   padding: 0.5rem 1.5rem 1.5rem 1.5rem;
   border-radius: 3px;
 }
-.wp_starter_plugin_settings .fieldset {
+.QUICK_NOTES_settings .fieldset {
   margin: 0.7rem auto 1rem auto;
 }
-.wp_starter_plugin_settings input,
-.wp_starter_plugin_settings textarea,
-.wp_starter_plugin_settings select {
+.QUICK_NOTES_settings input,
+.QUICK_NOTES_settings textarea,
+.QUICK_NOTES_settings select {
   margin-bottom: 0.5rem;
 }

@@ -1,18 +1,10 @@
 {
-  "name": "wordpress-webpack-workflow",
-  "version": "1.1.4",
-  "author": "WP-Strap",
-  "license": "MIT",
-  "homepage": "https://github.com/wp-strap/wordpress-webpack-workflow",
-  "description": "Modern WebPack workflow for WordPress front-end development and testing (plugins & themes) with handy tools included.\n",
+  "name": "quicknotes",
+  "version": "1.0",
+  "author": "Claudette Raynor",
+  "license": "GPLv2 or later",
+  "description": "WordPress Headless Quick Notes.\n",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wp-strap/wordpress-webpack-workflow.git"
-  },
-  "bugs": {
-    "url": "https://github.com/wp-strap/wordpress-webpack-workflow/issues"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prod": "webpack --env NODE_ENV=production --env production",

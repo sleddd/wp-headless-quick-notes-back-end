@@ -1,4 +1,4 @@
-<?php namespace WpStarterPlugin\ACF;
+<?php namespace QuickNotes\ACF;
 
 class JournalTopicFields {
 
@@ -12,14 +12,14 @@ class JournalTopicFields {
             'fields' => array(
                 array(
                     'key'   => 'field_journal_topic_icon',
-                    'label' => __('Topic Icon', 'wpstarterplugin'),
+                    'label' => __('Topic Icon', 'QuickNotes'),
                     'name'  => 'journal_topic_field_icon',
                     'type'  => 'text',
                     'show_in_graphql' => 1,
                 ),
                 array(
                     'key'   => 'field_journal_topic_color',
-                    'label' => __('Topic Color', 'wpstarterplugin'),
+                    'label' => __('Topic Color', 'QuickNotes'),
                     'name'  => 'journal_topic_field_color',
                     'type'  => 'color_picker',
                     'show_in_graphql' => 1,
@@ -30,7 +30,7 @@ class JournalTopicFields {
                     array(
                         'param' => 'taxonomy',
                         'operator' => '==',
-                        'value' => \WpStarterPlugin\PostTypes\Journal::POST_TYPE_TAX[0],
+                        'value' => \QuickNotes\PostTypes\Journal::POST_TYPE_TAX[0],
                     ),
                 ),
             ),

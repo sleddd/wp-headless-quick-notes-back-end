@@ -67,11 +67,6 @@ To add custom settings or options pages see examples:
 
 Gutenberg blocks can be registered in JavaScript. See hello-world block as an example: src/blocks/hello-world
 
-To rename this plugin with your plugin name, you will want to find and replace the following: 
-- WP_STARTER_PLUGIN
-- WpStarterPlugin
-- wpstarterplugin
-
 Run composer dump-autoload -o to rebuild the autoload files when done.
 
 !! This plugin is not currently maintained except when I get time. I do plan to add additional support for REST API, customizer, tables, and additional ACF integration, but do not know when that will be.

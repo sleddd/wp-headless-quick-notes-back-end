@@ -10,16 +10,12 @@ class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
-        '95c987c510bf5845a8e27473f7ea87bf' => __DIR__ . '/../..' . '/src/lib/postTypes.php',
-        'f7ce016f1fd9aadd2eba7f8a965d09f0' => __DIR__ . '/..' . '/advanced-custom-fields/advanced-custom-fields-pro/acf.php',
-        'f83af7fd2da90b371c0124adf6284a42' => __DIR__ . '/..' . '/advanced-custom-fields/advanced-custom-fields-pro/pro/acf-pro.php',
+        '9e3932fda63212032f622c1dd4392fce' => __DIR__ . '/../..' . '/src/lib/postTypes.php',
+        '3c1d1f51013b61ffa0e868d05db5fa81' => __DIR__ . '/..' . '/advanced-custom-fields/advanced-custom-fields-pro/acf.php',
+        '9abb99683796c48a033a84b9b05b6db4' => __DIR__ . '/..' . '/advanced-custom-fields/advanced-custom-fields-pro/pro/acf-pro.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'W' => 
-        array (
-            'WpStarterPlugin\\' => 16,
-        ),
         'V' => 
         array (
             'VariableAnalysis\\' => 17,
@@ -29,6 +25,10 @@ class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
+        ),
+        'Q' => 
+        array (
+            'QuickNotes\\' => 11,
         ),
         'P' => 
         array (
@@ -50,12 +50,6 @@ class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
     );
 
     public static $prefixDirsPsr4 = array (
-        'WpStarterPlugin\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/classes',
-            1 => __DIR__ . '/../..' . '/src/classes/PostTypes',
-            2 => __DIR__ . '/../..' . '/src/classes/Settings',
-        ),
         'VariableAnalysis\\' => 
         array (
             0 => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis',
@@ -71,6 +65,12 @@ class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'QuickNotes\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/classes',
+            1 => __DIR__ . '/../..' . '/src/classes/PostTypes',
+            2 => __DIR__ . '/../..' . '/src/classes/Settings',
         ),
         'PhpOption\\' => 
         array (
@@ -156,6 +156,13 @@ class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
         'PhpOption\\None' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/None.php',
         'PhpOption\\Option' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/Option.php',
         'PhpOption\\Some' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/Some.php',
+        'QuickNotes\\ACF\\JournalFields' => __DIR__ . '/../..' . '/src/classes/ACF/JournalFields.php',
+        'QuickNotes\\ACF\\JournalTopicFields' => __DIR__ . '/../..' . '/src/classes/ACF/JournalTopicFields.php',
+        'QuickNotes\\PostTypes\\Journal' => __DIR__ . '/../..' . '/src/classes/PostTypes/Journal.php',
+        'QuickNotes\\Settings\\ExampleACFSettingsPage' => __DIR__ . '/../..' . '/src/classes/Settings/ExampleACFSettingsPage.php',
+        'QuickNotes\\Settings\\ExampleSettingsPage' => __DIR__ . '/../..' . '/src/classes/Settings/ExampleSettingsPage.php',
+        'QuickNotes\\Settings\\ExampleSettingsSubPage' => __DIR__ . '/../..' . '/src/classes/Settings/ExampleSettingsSubPage.php',
+        'QuickNotes\\Settings\\SettingsPage' => __DIR__ . '/../..' . '/src/classes/Settings/SettingsPage.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
@@ -168,14 +175,6 @@ class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
         'VariableAnalysis\\Lib\\ScopeType' => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis/Lib/ScopeType.php',
         'VariableAnalysis\\Lib\\VariableInfo' => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis/Lib/VariableInfo.php',
         'VariableAnalysis\\Sniffs\\CodeAnalysis\\VariableAnalysisSniff' => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis/Sniffs/CodeAnalysis/VariableAnalysisSniff.php',
-        'WpStarterPlugin\\ACF\\JournalFields' => __DIR__ . '/../..' . '/src/classes/ACF/JournalFields.php',
-        'WpStarterPlugin\\ACF\\JournalTopicFields' => __DIR__ . '/../..' . '/src/classes/ACF/JournalTopicFields.php',
-        'WpStarterPlugin\\PostTypes\\Journal' => __DIR__ . '/../..' . '/src/classes/PostTypes/Journal.php',
-        'WpStarterPlugin\\Settings\\ExampleACFSettingsPage' => __DIR__ . '/../..' . '/src/classes/Settings/ExampleACFSettingsPage.php',
-        'WpStarterPlugin\\Settings\\ExampleSettingsPage' => __DIR__ . '/../..' . '/src/classes/Settings/ExampleSettingsPage.php',
-        'WpStarterPlugin\\Settings\\ExampleSettingsSubPage' => __DIR__ . '/../..' . '/src/classes/Settings/ExampleSettingsSubPage.php',
-        'WpStarterPlugin\\Settings\\SettingsPage' => __DIR__ . '/../..' . '/src/classes/Settings/SettingsPage.php',
-        'WpStarterPlugin\\WpStarterPlugin' => __DIR__ . '/../..' . '/src/classes/WpStarterPlugin.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

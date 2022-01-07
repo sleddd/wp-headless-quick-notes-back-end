@@ -1,4 +1,4 @@
-<?php namespace WpStarterPlugin\PostTypes;
+<?php namespace QuickNotes\PostTypes;
 
 /**
  * Example custom post type.

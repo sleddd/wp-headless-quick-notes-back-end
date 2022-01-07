@@ -1,4 +1,4 @@
-<?php namespace WpStarterPlugin\PostTypes;
+<?php namespace QuickNotes\PostTypes;
 
 /**
  * Get formatted set of arguments for a post type name.
@@ -211,7 +211,7 @@ function add_meta_box( $title = '', $fields = array(), $context = 'normal', $pri
 
 						// Check the array and loop through it
 						if ( ! empty( $custom_fields ) ) {
-							echo '<div class="wp_starter_plugin_custom_meta">';
+							echo '<div class="QUICK_NOTES_custom_meta">';
 							/* Loop through $custom_fields */
 							foreach ( $custom_fields as $label => $field ) {
 								$field_id_name = strtolower( str_replace( ' ', '_', $data['id'] ) ) . '_' . strtolower( str_replace( ' ', '_', $label ) );

@@ -49,7 +49,7 @@ const externals = [
 		jquery: 'jQuery', // import $ from 'jquery'; // Use jQuery from WP after enqueuing it.
 		'react-dom': 'ReactDOM',
 		lodash: 'lodash', // Lodash is there in Gutenberg.
-		wpstarterplugin: 'wpstarterplugin', // import globals from 'wpstarterplugin'; // Localized data.
+		QuickNotes: 'QuickNotes', // import globals from 'QuickNotes'; // Localized data.
 	}
 );
 

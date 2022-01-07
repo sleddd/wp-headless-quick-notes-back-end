@@ -1,12 +1,12 @@
 {
-	"name":"wpstarterplugin/hello-world",
+	"name":"QuickNotes/hello-world",
 	"title": "Hello World",
 	"category": "text",
 	"icon": "admin-comments",
 	"description": "Hello World block.",
 	"keywords": ["hello","world"],
 	"version": "1.0",
-	"textdomain": "wpstarterplugin",
+	"textdomain": "QuickNotes",
 	"attributes": {
 		"title": {
 			"type": "string"

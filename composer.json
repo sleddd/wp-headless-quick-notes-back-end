@@ -1,6 +1,6 @@
 {
-        "name": "wpstarterplugin/wpstarterplugin",
-        "description": "WordPress plugin starter code",
+        "name": "quicknotes/quicknotes",
+        "description": "WordPress Headless Quick Notes Backend",
         "authors": [
                 {
                         "name": "Claudette Raynor"
@@ -43,7 +43,7 @@
         },
         "autoload": {
                 "psr-4": {
-                        "WpStarterPlugin\\": [
+                        "QuickNotes\\": [
                                 "src/classes/",
                                 "src/classes/PostTypes/",
                                 "src/classes/Settings/"

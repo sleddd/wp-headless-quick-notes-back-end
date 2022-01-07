@@ -1,4 +1,4 @@
-<?php namespace WpStarterPlugin\Settings;
+<?php namespace QuickNotes\Settings;
 
 /**
  * Example for settings menu page.

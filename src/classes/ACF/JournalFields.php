@@ -1,4 +1,4 @@
-<?php namespace WpStarterPlugin\ACF;
+<?php namespace QuickNotes\ACF;
 
 class JournalFields {
 
@@ -12,14 +12,14 @@ class JournalFields {
             'fields' => array(
                 array(
                     'key'   => 'field_journal_entry_title',
-                    'label' => __('Entry Title', 'wpstarterplugin'),
+                    'label' => __('Entry Title', 'QuickNotes'),
                     'name'  => 'journal_entry_field_title',
                     'type'  => 'text',
                     'show_in_graphql' => 1,
                 ),
                 array(
                     'key'   => 'field_journal_entry_image',
-                    'label' => __('Entry Image', 'wpstarterplugin'),
+                    'label' => __('Entry Image', 'QuickNotes'),
                     'name'  => 'journal_entry_field_image',
                     'type'  => 'image',
                     'return_format' => 'Return Format',
@@ -33,7 +33,7 @@ class JournalFields {
                     array(
                         'param' => 'post_type',
                         'operator' => '==',
-                        'value' => \WpStarterPlugin\PostTypes\Journal::POST_TYPE_NAME,
+                        'value' => \QuickNotes\PostTypes\Journal::POST_TYPE_NAME,
                     ),
                 ),
             ),

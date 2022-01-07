@@ -1,6 +1,6 @@
 <?php 
 
-namespace WpStarterPlugin\Settings;
+namespace QuickNotes\Settings;
 
 /**
  * Example for settings menu page using Advanced Custom Fields.

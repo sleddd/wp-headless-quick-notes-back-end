@@ -5,8 +5,8 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '026a563d2a4ae2a1aeda9e53b98fc676a905b2ce',
-        'name' => 'wpstarterplugin/wpstarterplugin',
+        'reference' => '1fcc753001138c12fa5f748173c56ecc215dd0d4',
+        'name' => 'quicknotes/quicknotes',
         'dev' => true,
     ),
     'versions' => array(
@@ -62,6 +62,15 @@
             'install_path' => __DIR__ . '/../phpoption/phpoption',
             'aliases' => array(),
             'reference' => 'eab7a0df01fe2344d172bff4cd6dbd3f8b84ad15',
+            'dev_requirement' => false,
+        ),
+        'quicknotes/quicknotes' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => '1fcc753001138c12fa5f748173c56ecc215dd0d4',
             'dev_requirement' => false,
         ),
         'sirbrillig/phpcs-variable-analysis' => array(
@@ -126,15 +135,6 @@
             'aliases' => array(),
             'reference' => '7da1894633f168fe244afc6de00d141f27517b62',
             'dev_requirement' => true,
-        ),
-        'wpstarterplugin/wpstarterplugin' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'reference' => '026a563d2a4ae2a1aeda9e53b98fc676a905b2ce',
-            'dev_requirement' => false,
         ),
     ),
 );

@@ -1,4 +1,4 @@
-<?php namespace WpStarterPlugin\Settings;
+<?php namespace QuickNotes\Settings;
 
 /**
  * Manages registration of a custom settings page.
@@ -76,8 +76,8 @@ class SettingsPage {
 				if ( array_key_exists( 'parent_slug', static::$SETTINGS_PAGE ) ) {
 					add_submenu_page(
 						static::$SETTINGS_PAGE['parent_slug'],
-						__( static::$SETTINGS_PAGE['page_title'], 'wpstarterplugin' ),
-						__( static::$SETTINGS_PAGE['menu_title'], 'wpstarterplugin' ),
+						__( static::$SETTINGS_PAGE['page_title'], 'QuickNotes' ),
+						__( static::$SETTINGS_PAGE['menu_title'], 'QuickNotes' ),
 						static::$SETTINGS_PAGE['capability'],
 						static::$SETTINGS_PAGE['slug'],
 						array( $this, 'render_page' ),
@@ -85,8 +85,8 @@ class SettingsPage {
 					);
 				} else {
 					add_menu_page(
-						__( static::$SETTINGS_PAGE['page_title'], 'wpstarterplugin' ),
-						__( static::$SETTINGS_PAGE['menu_title'], 'wpstarterplugin' ),
+						__( static::$SETTINGS_PAGE['page_title'], 'QuickNotes' ),
+						__( static::$SETTINGS_PAGE['menu_title'], 'QuickNotes' ),
 						static::$SETTINGS_PAGE['capability'],
 						static::$SETTINGS_PAGE['slug'],
 						array( $this, 'render_page' ),
@@ -110,7 +110,7 @@ class SettingsPage {
 		$page       = $this::$SETTINGS_PAGE['slug'];
 		$page_title = $this::$SETTINGS_PAGE['page_title'];
 		$tabs       = $this::$SETTINGS_TABS;
-		include WP_STARTER_PLUGIN_PATH . '/src/templates/settings/' . static::$SETTINGS_PAGE['template'] . '.php';
+		include QUICK_NOTES_PATH . '/src/templates/settings/' . static::$SETTINGS_PAGE['template'] . '.php';
 	}
 
 
@@ -136,7 +136,7 @@ class SettingsPage {
 	public function render_sections( $section ) {
 		foreach ( $this::$SETTINGS_SECTIONS as $sub_section ) {
 			if ( $section['id'] == $sub_section['id'] ) {
-				include WP_STARTER_PLUGIN_PATH . '/src/templates/settings/' . $sub_section['template'] . '.php';
+				include QUICK_NOTES_PATH . '/src/templates/settings/' . $sub_section['template'] . '.php';
 			}
 		}
 	}
@@ -246,7 +246,7 @@ class SettingsPage {
 				break;
 			case 'select':
 				echo '<br/><select name="' . $field['id'] . '" id="' . $field['id'] . '">';
-				echo '<option class="disabled">' . __( $field['label'], 'wpstarterplugin' ) . '</option>';
+				echo '<option class="disabled">' . __( $field['label'], 'QuickNotes' ) . '</option>';
 				foreach ( $field['options'] as $field_option ) {
 					echo '<option', $option === $field_option['value'] ? ' selected="selected"' : '', ' value="' . $field_option['value'] . '">' . $field_option['label'] . '</option>';
 				}

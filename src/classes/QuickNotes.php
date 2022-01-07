@@ -1,9 +1,9 @@
-<?php namespace WpStarterPlugin;
+<?php namespace QuickNotes;
 
 /**
  * Manages plugin initialization.
  */
-class WpStarterPlugin {
+class QuickNotes {
 
 	/**
 	 * Holds an instance of the plugin.
@@ -22,7 +22,7 @@ class WpStarterPlugin {
 	 */
 	public static function get_instance() {
 		if ( self::$instance == null ) {
-			self::$instance = new WpStarterPlugin();
+			self::$instance = new QuickNotes();
 		}
 		return self::$instance;
 	}
@@ -35,8 +35,8 @@ class WpStarterPlugin {
 		$plugin = self::get_instance();
 
 		// Register activation and deactivation hooks
-		register_activation_hook( WP_STARTER_PLUGIN_PATH . 'wp-starter-plugin.php', array( __NAMESPACE__ . '\\WpStarterPlugin', 'activate_plugin' ) );
-		register_deactivation_hook( WP_STARTER_PLUGIN_PATH . 'wp-starter-plugin.php', array( __NAMESPACE__ . '\\WpStarterPlugin', 'deactivate_plugin' ) );
+		register_activation_hook( QUICK_NOTES_PATH . 'wp-starter-plugin.php', array( __NAMESPACE__ . '\\QuickNotes', 'activate_plugin' ) );
+		register_deactivation_hook( QUICK_NOTES_PATH . 'wp-starter-plugin.php', array( __NAMESPACE__ . '\\QuickNotes', 'deactivate_plugin' ) );
 
 		// Register custom post types.
 		$plugin::register_cpts();
@@ -45,16 +45,16 @@ class WpStarterPlugin {
 		$plugin::register_custom_fields();
 
 		// Register custom blocks.
-		add_action( 'init', array( __NAMESPACE__ . '\\WpStarterPlugin', 'register_blocks' ) );
+		add_action( 'init', array( __NAMESPACE__ . '\\QuickNotes', 'register_blocks' ) );
 
 		// Enqueue scripts and styles.
-		add_action( 'wp_enqueue_styles', array( __NAMESPACE__ . '\\WpStarterPlugin', 'enqueue_frontend_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( __NAMESPACE__ . '\\WpStarterPlugin', 'enqueue_frontend_scripts' ) );
-		add_action( 'admin_enqueue_scripts', array( __NAMESPACE__ . '\\WpStarterPlugin', 'enqueue_backend_scripts' ) );
-		add_action( 'admin_enqueue_scripts', array( __NAMESPACE__ . '\\WpStarterPlugin', 'enqueue_backend_styles' ) );
+		add_action( 'wp_enqueue_styles', array( __NAMESPACE__ . '\\QuickNotes', 'enqueue_frontend_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( __NAMESPACE__ . '\\QuickNotes', 'enqueue_frontend_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( __NAMESPACE__ . '\\QuickNotes', 'enqueue_backend_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( __NAMESPACE__ . '\\QuickNotes', 'enqueue_backend_styles' ) );
 
 		// Add browsersync.
-		add_action( 'wp_footer', array( __NAMESPACE__ . '\\WpStarterPlugin', 'add_browser_sync' ) );
+		add_action( 'wp_footer', array( __NAMESPACE__ . '\\QuickNotes', 'add_browser_sync' ) );
 
 		// Add settings pages.
 		$plugin::register_settings_pages();
@@ -84,9 +84,9 @@ class WpStarterPlugin {
 	 * Registration for custom settings pages.
 	 */
 	public static function register_settings_pages() {
-		//\WpStarterPlugin\Settings\ExampleSettingsPage::init();
-		//\WpStarterPlugin\Settings\ExampleSettingsSubPage::init();
-		//\WpStarterPlugin\Settings\ExampleACFSettingsPage::init();
+		//\QuickNotes\Settings\ExampleSettingsPage::init();
+		//\QuickNotes\Settings\ExampleSettingsSubPage::init();
+		//\QuickNotes\Settings\ExampleACFSettingsPage::init();
 	}
 
 	/**
@@ -111,22 +111,22 @@ class WpStarterPlugin {
 	 */
 	public static function register_blocks() {
 		wp_enqueue_style(
-			'wpstarterplugin-blockcss',
-			WP_STARTER_PLUGIN_URL . 'dist/css/blocks.css'
+			'QuickNotes-blockcss',
+			QUICK_NOTES_URL . 'dist/css/blocks.css'
 		);
 		wp_enqueue_script(
-			'wpstarterplugin-blockjs',
-			WP_STARTER_PLUGIN_URL . 'dist/js/blocks.js',
+			'QuickNotes-blockjs',
+			QUICK_NOTES_URL . 'dist/js/blocks.js',
 			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components' ),
 			null,
 			true
 		);
 		wp_localize_script(
-			'wpstarterplugin-blockjs',
-			'wpstarterplugin',
+			'QuickNotes-blockjs',
+			'QuickNotes',
 			array(
-				'pluginDirPath' => WP_STARTER_PLUGIN_PATH,
-				'pluginDirUrl'  => WP_STARTER_PLUGIN_URL,
+				'pluginDirPath' => QUICK_NOTES_PATH,
+				'pluginDirUrl'  => QUICK_NOTES_URL,
 			)
 		);
 	}
@@ -135,25 +135,25 @@ class WpStarterPlugin {
 	 * Registration for frontend plugin styles.
 	 */
 	public static function enqueue_frontend_styles() {
-		wp_enqueue_style( 'wpstarterplugin-styles', WP_STARTER_PLUGIN_URL . 'dist/css/frontend.css', rand(), false, 'all' );
+		wp_enqueue_style( 'QuickNotes-styles', QUICK_NOTES_URL . 'dist/css/frontend.css', rand(), false, 'all' );
 	}
 
 	/**
 	 * Registration for backend styles.
 	 */
 	public static function enqueue_backend_styles() {
-		wp_enqueue_style( 'wpstarterplugin-styles', WP_STARTER_PLUGIN_URL . 'dist/css/backend.css', rand(), false, 'all' );
+		wp_enqueue_style( 'QuickNotes-styles', QUICK_NOTES_URL . 'dist/css/backend.css', rand(), false, 'all' );
 	}
 
 	/**
 	 * Registration for frontend scripts and script localization.
 	 */
 	public static function enqueue_frontend_scripts() {
-		wp_enqueue_script( 'wpstarterplugin-scripts', WP_STARTER_PLUGIN_URL . 'dist/js/frontend.js', 'jquery', rand(), true );
+		wp_enqueue_script( 'QuickNotes-scripts', QUICK_NOTES_URL . 'dist/js/frontend.js', 'jquery', rand(), true );
 		$nonce = wp_create_nonce( 'ajax_nonce' );
 		wp_localize_script(
-			'wpstarterplugin-frontend-scripts',
-			'wpstarterplugin',
+			'QuickNotes-frontend-scripts',
+			'QuickNotes',
 			array(
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => $nonce,
@@ -165,11 +165,11 @@ class WpStarterPlugin {
 	 * Registration for backend scripts.
 	 */
 	public static function enqueue_backend_scripts() {
-		wp_enqueue_script( 'wpstarterplugin-scripts', WP_STARTER_PLUGIN_URL . 'dist/js/backend.js', 'jquery', rand(), true );
+		wp_enqueue_script( 'QuickNotes-scripts', QUICK_NOTES_URL . 'dist/js/backend.js', 'jquery', rand(), true );
 		$nonce = wp_create_nonce( 'ajax_nonce' );
 		wp_localize_script(
-			'wpstarterplugin-backend-scripts',
-			'wpstarterplugin',
+			'QuickNotes-backend-scripts',
+			'QuickNotes',
 			array(
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => $nonce,
