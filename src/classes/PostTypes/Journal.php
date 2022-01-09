@@ -34,6 +34,7 @@ class Journal {
 				'show_in_graphql' => true,
 				'graphql_single_name' => $genre,
 				'graphql_plural_name' => $genre . 's',
+				'hierarchical' => true
 			) );
 		}
 		// Removing editor support.

@@ -44,6 +44,9 @@ class QuickNotes {
 		// Register custom post types.
 		$plugin::register_custom_fields();
 
+		// Register graphQL extensions 
+		$plugin::extend_graphQL();
+
 		// Register custom blocks.
 		add_action( 'init', array( __NAMESPACE__ . '\\QuickNotes', 'register_blocks' ) );
 
@@ -102,6 +105,27 @@ class QuickNotes {
 	public static function register_custom_fields() {
 		ACF\JournalFields::init();
 		ACF\JournalTopicFields::init();
+	}
+
+	/**
+	 * Registration for graphQL extensions 
+	 */
+	public static function extend_graphQL() {
+		add_action('graphql_input_fields', function ($fields, $type_name, $config) {
+			if ($type_name === 'UpdateJournalInput' || $type_name === 'CreateJournalInput' || $type_name === 'deleteJournalInput') {
+				$fields = array_merge($fields, [
+					'journal_entry_field_title' => ['type' => 'String']
+				]);
+			}
+			return $fields;
+		}, 20, 3);
+		
+		add_action( 'graphql_post_object_mutation_update_additional_data', function( $post_id, $input, $post_type_object, $mutation_name, $context, $info, $default_post_status, $intended_post_status ) {
+			if ( isset( $input['journal_entry_field_title'] ) ) {
+				update_field( 'journal_entry_field_title', $input['journal_entry_field_title'], $post_id );
+			}
+		}, 10, 8 );
+		
 	}
 
 
