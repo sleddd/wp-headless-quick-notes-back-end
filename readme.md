@@ -3,7 +3,7 @@ Contributors: Claudette Raynor \
 License: GPLv2 or later \
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Quick notes is a simply note taking app built using WordPress, React, and GraphQL.
+Quick notes is a simple note taking app built using WordPress, React, and GraphQL.
 
 Front end app: https://github.com/sleddd/wp-headless-quick-notes-front-end.git  \
 Backend plugin: https://github.com/sleddd/wp-headless-quick-notes-back-end.git 
