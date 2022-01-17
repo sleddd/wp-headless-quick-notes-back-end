@@ -46,6 +46,7 @@ class QuickNotes {
 
 		// Register graphQL extensions 
 		$plugin::extend_graphQL();
+		$plugin::add_graphQL_wp_login_mutation();
 
 		// Register custom blocks.
 		add_action( 'init', array( __NAMESPACE__ . '\\QuickNotes', 'register_blocks' ) );
@@ -125,9 +126,54 @@ class QuickNotes {
 				update_field( 'journal_entry_field_title', $input['journal_entry_field_title'], $post_id );
 			}
 		}, 10, 8 );
-		
 	}
 
+	/**
+	* Registers/extends the login mutation.
+	*/
+	public static function add_graphQL_wp_login_mutation() {
+		add_action( 'graphql_register_types', function() {
+			register_graphql_mutation(
+				'loginWithCookies',
+				array(
+					'inputFields' => array(
+						'login'      => array(
+							'type'        => array( 'non_null' => 'String' ),
+							'description' => __( 'Input your username/email.' ),
+						),
+						'password'   => array(
+							'type'        => array( 'non_null' => 'String' ),
+							'description' => __( 'Input your password.' ),
+						),
+					),
+					'outputFields'        => array(
+						'status' => array(
+							'type'        => 'String',
+							'description' => 'Login operation status',
+							'resolve'     => function( $payload ) {
+								return $payload['status'];
+							},
+						),
+					),
+					'mutateAndGetPayload' => function( $input ) {
+						$user = wp_signon( 
+							array(
+								'user_login'    => wp_unslash( $input['login'] ),
+								'user_password' => $input['password'],
+							), 
+							true 
+						);
+
+						if ( is_wp_error( $user ) ) {
+							throw new \GraphQL\Error\UserError\UserError( ! empty( $user->get_error_code() ) ? $user->get_error_code() : 'invalid login' );
+						}
+
+						return array( 'status' => 'SUCCESS' );
+					},
+				)
+			);
+		} );
+	}
 
 	/**
 	 * Registration for block scripts and styles.

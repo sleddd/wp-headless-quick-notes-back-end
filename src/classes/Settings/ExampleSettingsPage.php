@@ -10,7 +10,7 @@ class ExampleSettingsPage extends SettingsPage {
 	public static $SETTINGS_PAGE = array(
 		'menu_title' 	=> 'Main Page',
 		'page_title' 	=> 'Page Title',
-		'slug'  	=> 'theme_options',
+		'slug'  	    => 'theme_options',
 		'capability' 	=> 'administrator',
 		'template'   	=> 'wrapper',
 	);
