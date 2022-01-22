@@ -40,7 +40,7 @@ function get_post_type_args( $name = '', $args = array(), $labels = array() ) {
 			'labels'            => $labels,
 			'public'            => true,
 			'show_ui'           => true,
-			'supports'          => array( 'title', 'editor' ),
+			'supports'          => array( 'title', 'editor', 'author' ),
 			'show_in_nav_menus' => true,
 			'_builtin'          => false,
 		),
