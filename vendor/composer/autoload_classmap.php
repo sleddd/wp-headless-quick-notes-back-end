@@ -70,6 +70,7 @@ return array(
     'QuickNotes\\ACF\\JournalFields' => $baseDir . '/src/classes/ACF/JournalFields.php',
     'QuickNotes\\ACF\\JournalTopicFields' => $baseDir . '/src/classes/ACF/JournalTopicFields.php',
     'QuickNotes\\PostTypes\\Journal' => $baseDir . '/src/classes/PostTypes/Journal.php',
+    'QuickNotes\\QuickNotes' => $baseDir . '/src/classes/QuickNotes.php',
     'QuickNotes\\Settings\\ExampleACFSettingsPage' => $baseDir . '/src/classes/Settings/ExampleACFSettingsPage.php',
     'QuickNotes\\Settings\\ExampleSettingsPage' => $baseDir . '/src/classes/Settings/ExampleSettingsPage.php',
     'QuickNotes\\Settings\\ExampleSettingsSubPage' => $baseDir . '/src/classes/Settings/ExampleSettingsSubPage.php',

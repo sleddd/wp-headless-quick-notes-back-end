@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '1fcc753001138c12fa5f748173c56ecc215dd0d4',
+        'reference' => 'ea5fbfceb0055aea26dc69628319ab77f93e765f',
         'name' => 'quicknotes/quicknotes',
         'dev' => true,
     ),
@@ -70,7 +70,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '1fcc753001138c12fa5f748173c56ecc215dd0d4',
+            'reference' => 'ea5fbfceb0055aea26dc69628319ab77f93e765f',
             'dev_requirement' => false,
         ),
         'sirbrillig/phpcs-variable-analysis' => array(

@@ -159,6 +159,7 @@ class ComposerStaticInit3831819c8c8a3f9d6f84c9c1fd85192a
         'QuickNotes\\ACF\\JournalFields' => __DIR__ . '/../..' . '/src/classes/ACF/JournalFields.php',
         'QuickNotes\\ACF\\JournalTopicFields' => __DIR__ . '/../..' . '/src/classes/ACF/JournalTopicFields.php',
         'QuickNotes\\PostTypes\\Journal' => __DIR__ . '/../..' . '/src/classes/PostTypes/Journal.php',
+        'QuickNotes\\QuickNotes' => __DIR__ . '/../..' . '/src/classes/QuickNotes.php',
         'QuickNotes\\Settings\\ExampleACFSettingsPage' => __DIR__ . '/../..' . '/src/classes/Settings/ExampleACFSettingsPage.php',
         'QuickNotes\\Settings\\ExampleSettingsPage' => __DIR__ . '/../..' . '/src/classes/Settings/ExampleSettingsPage.php',
         'QuickNotes\\Settings\\ExampleSettingsSubPage' => __DIR__ . '/../..' . '/src/classes/Settings/ExampleSettingsSubPage.php',
