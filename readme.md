@@ -1,4 +1,4 @@
-# Quick Notes - Headless WordPress Note App
+# WIP - Quick Notes - Headless WordPress Note App
 Contributors: Claudette Raynor \
 License: GPLv2 or later \
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
